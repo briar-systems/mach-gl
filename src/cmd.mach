@@ -15,2626 +15,3282 @@ use std.types.string.str;
 pub fun cull_face(mode: u32) {
     c.glCullFace(mode);
 }
+
 # wraps glFrontFace
 pub fun front_face(mode: u32) {
     c.glFrontFace(mode);
 }
+
 # wraps glHint
 pub fun hint(target: u32, mode: u32) {
     c.glHint(target, mode);
 }
+
 # wraps glLineWidth
 pub fun line_width(width: f32) {
     c.glLineWidth(width);
 }
+
 # wraps glPointSize
 pub fun point_size(size: f32) {
     c.glPointSize(size);
 }
+
 # wraps glPolygonMode
 pub fun polygon_mode(face: u32, mode: u32) {
     c.glPolygonMode(face, mode);
 }
+
 # wraps glScissor
 pub fun scissor(x: i32, y: i32, width: i32, height: i32) {
     c.glScissor(x, y, width, height);
 }
+
 # wraps glTexParameterf
 pub fun tex_parameterf(target: u32, pname: u32, param: f32) {
     c.glTexParameterf(target, pname, param);
 }
+
 # wraps glTexParameterfv
 pub fun tex_parameterfv(target: u32, pname: u32, params: *f32) {
     c.glTexParameterfv(target, pname, params);
 }
+
 # wraps glTexParameteri
 pub fun tex_parameteri(target: u32, pname: u32, param: i32) {
     c.glTexParameteri(target, pname, param);
 }
+
 # wraps glTexParameteriv
 pub fun tex_parameteriv(target: u32, pname: u32, params: *i32) {
     c.glTexParameteriv(target, pname, params);
 }
+
 # wraps glTexImage1D
 pub fun tex_image1d(target: u32, level: i32, internalformat: i32, width: i32, border: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexImage1D(target, level, internalformat, width, border, format, type, pixels);
 }
+
 # wraps glTexImage2D
 pub fun tex_image2d(target: u32, level: i32, internalformat: i32, width: i32, height: i32, border: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 }
+
 # wraps glDrawBuffer
 pub fun draw_buffer(buf: u32) {
     c.glDrawBuffer(buf);
 }
+
 # wraps glClear
 pub fun clear(mask: u32) {
     c.glClear(mask);
 }
+
 # wraps glClearColor
 pub fun clear_color(red: f32, green: f32, blue: f32, alpha: f32) {
     c.glClearColor(red, green, blue, alpha);
 }
+
 # wraps glClearStencil
 pub fun clear_stencil(s: i32) {
     c.glClearStencil(s);
 }
+
 # wraps glClearDepth
 pub fun clear_depth(depth: f64) {
     c.glClearDepth(depth);
 }
+
 # wraps glStencilMask
 pub fun stencil_mask(mask: u32) {
     c.glStencilMask(mask);
 }
+
 # wraps glColorMask
 pub fun color_mask(red: bool, green: bool, blue: bool, alpha: bool) {
     c.glColorMask(red, green, blue, alpha);
 }
+
 # wraps glDepthMask
 pub fun depth_mask(flag: bool) {
     c.glDepthMask(flag);
 }
+
 # wraps glDisable
 pub fun disable(cap: u32) {
     c.glDisable(cap);
 }
+
 # wraps glEnable
 pub fun enable(cap: u32) {
     c.glEnable(cap);
 }
+
 # wraps glFinish
 pub fun finish() {
     c.glFinish();
 }
+
 # wraps glFlush
 pub fun flush() {
     c.glFlush();
 }
+
 # wraps glBlendFunc
 pub fun blend_func(sfactor: u32, dfactor: u32) {
     c.glBlendFunc(sfactor, dfactor);
 }
+
 # wraps glLogicOp
 pub fun logic_op(opcode: u32) {
     c.glLogicOp(opcode);
 }
+
 # wraps glStencilFunc
 pub fun stencil_func(func: u32, ref: i32, mask: u32) {
     c.glStencilFunc(func, ref, mask);
 }
+
 # wraps glStencilOp
 pub fun stencil_op(fail: u32, zfail: u32, zpass: u32) {
     c.glStencilOp(fail, zfail, zpass);
 }
+
 # wraps glDepthFunc
 pub fun depth_func(func: u32) {
     c.glDepthFunc(func);
 }
+
 # wraps glPixelStoref
 pub fun pixel_storef(pname: u32, param: f32) {
     c.glPixelStoref(pname, param);
 }
+
 # wraps glPixelStorei
 pub fun pixel_storei(pname: u32, param: i32) {
     c.glPixelStorei(pname, param);
 }
+
 # wraps glReadBuffer
 pub fun read_buffer(src: u32) {
     c.glReadBuffer(src);
 }
+
 # wraps glReadPixels
 pub fun read_pixels(x: i32, y: i32, width: i32, height: i32, format: u32, type: u32, pixels: ptr) {
     c.glReadPixels(x, y, width, height, format, type, pixels);
 }
+
 # wraps glGetBooleanv
 pub fun get_booleanv(pname: u32, data: *u8) {
     c.glGetBooleanv(pname, data);
 }
+
 # wraps glGetDoublev
 pub fun get_doublev(pname: u32, data: *f64) {
     c.glGetDoublev(pname, data);
 }
+
 # wraps glGetError
 pub fun get_error() u32 {
     ret c.glGetError();
 }
+
 # wraps glGetFloatv
 pub fun get_floatv(pname: u32, data: *f32) {
     c.glGetFloatv(pname, data);
 }
+
 # wraps glGetIntegerv
 pub fun get_integerv(pname: u32, data: *i32) {
     c.glGetIntegerv(pname, data);
 }
+
 # wraps glGetString
 pub fun get_string(name: u32) *u8 {
     ret c.glGetString(name);
 }
+
 # wraps glGetTexImage
 pub fun get_tex_image(target: u32, level: i32, format: u32, type: u32, pixels: ptr) {
     c.glGetTexImage(target, level, format, type, pixels);
 }
+
 # wraps glGetTexParameterfv
 pub fun get_tex_parameterfv(target: u32, pname: u32, params: *f32) {
     c.glGetTexParameterfv(target, pname, params);
 }
+
 # wraps glGetTexParameteriv
 pub fun get_tex_parameteriv(target: u32, pname: u32, params: *i32) {
     c.glGetTexParameteriv(target, pname, params);
 }
+
 # wraps glGetTexLevelParameterfv
 pub fun get_tex_level_parameterfv(target: u32, level: i32, pname: u32, params: *f32) {
     c.glGetTexLevelParameterfv(target, level, pname, params);
 }
+
 # wraps glGetTexLevelParameteriv
 pub fun get_tex_level_parameteriv(target: u32, level: i32, pname: u32, params: *i32) {
     c.glGetTexLevelParameteriv(target, level, pname, params);
 }
+
 # wraps glIsEnabled
 pub fun is_enabled(cap: u32) bool {
     ret c.glIsEnabled(cap) != 0;
 }
+
 # wraps glDepthRange
 pub fun depth_range(n: f64, f: f64) {
     c.glDepthRange(n, f);
 }
+
 # wraps glViewport
 pub fun viewport(x: i32, y: i32, width: i32, height: i32) {
     c.glViewport(x, y, width, height);
 }
+
 # wraps glDrawArrays
 pub fun draw_arrays(mode: u32, first: i32, count: i32) {
     c.glDrawArrays(mode, first, count);
 }
+
 # wraps glDrawElements
 pub fun draw_elements(mode: u32, count: i32, type: u32, indices: ptr) {
     c.glDrawElements(mode, count, type, indices);
 }
+
 # wraps glPolygonOffset
 pub fun polygon_offset(factor: f32, units: f32) {
     c.glPolygonOffset(factor, units);
 }
+
 # wraps glCopyTexImage1D
 pub fun copy_tex_image1d(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, border: i32) {
     c.glCopyTexImage1D(target, level, internalformat, x, y, width, border);
 }
+
 # wraps glCopyTexImage2D
 pub fun copy_tex_image2d(target: u32, level: i32, internalformat: u32, x: i32, y: i32, width: i32, height: i32, border: i32) {
     c.glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
 }
+
 # wraps glCopyTexSubImage1D
 pub fun copy_tex_sub_image1d(target: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
     c.glCopyTexSubImage1D(target, level, xoffset, x, y, width);
 }
+
 # wraps glCopyTexSubImage2D
 pub fun copy_tex_sub_image2d(target: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     c.glCopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
 }
+
 # wraps glTexSubImage1D
 pub fun tex_sub_image1d(target: u32, level: i32, xoffset: i32, width: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 }
+
 # wraps glTexSubImage2D
 pub fun tex_sub_image2d(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 }
+
 # wraps glBindTexture
 pub fun bind_texture(target: u32, texture: u32) {
     c.glBindTexture(target, texture);
 }
+
 # wraps glDeleteTextures
 pub fun delete_textures(n: i32, textures: *u32) {
     c.glDeleteTextures(n, textures);
 }
+
 # wraps glGenTextures
 pub fun gen_textures(n: i32, textures: *u32) {
     c.glGenTextures(n, textures);
 }
+
 # wraps glIsTexture
 pub fun is_texture(texture: u32) bool {
     ret c.glIsTexture(texture) != 0;
 }
+
 # wraps glDrawRangeElements
 pub fun draw_range_elements(mode: u32, start: u32, end: u32, count: i32, type: u32, indices: ptr) {
     c.glDrawRangeElements(mode, start, end, count, type, indices);
 }
+
 # wraps glTexImage3D
 pub fun tex_image3d(target: u32, level: i32, internalformat: i32, width: i32, height: i32, depth: i32, border: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 }
+
 # wraps glTexSubImage3D
 pub fun tex_sub_image3d(target: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, type: u32, pixels: ptr) {
     c.glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
+
 # wraps glCopyTexSubImage3D
 pub fun copy_tex_sub_image3d(target: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     c.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
 }
+
 # wraps glActiveTexture
 pub fun active_texture(texture: u32) {
     c.glActiveTexture(texture);
 }
+
 # wraps glSampleCoverage
 pub fun sample_coverage(value: f32, invert: bool) {
     c.glSampleCoverage(value, invert);
 }
+
 # wraps glCompressedTexImage3D
 pub fun compressed_tex_image3d(target: u32, level: i32, internalformat: u32, width: i32, height: i32, depth: i32, border: i32, imageSize: i32, data: ptr) {
     c.glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 }
+
 # wraps glCompressedTexImage2D
 pub fun compressed_tex_image2d(target: u32, level: i32, internalformat: u32, width: i32, height: i32, border: i32, imageSize: i32, data: ptr) {
     c.glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 }
+
 # wraps glCompressedTexImage1D
 pub fun compressed_tex_image1d(target: u32, level: i32, internalformat: u32, width: i32, border: i32, imageSize: i32, data: ptr) {
     c.glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
 }
+
 # wraps glCompressedTexSubImage3D
 pub fun compressed_tex_sub_image3d(target: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
+
 # wraps glCompressedTexSubImage2D
 pub fun compressed_tex_sub_image2d(target: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
+
 # wraps glCompressedTexSubImage1D
 pub fun compressed_tex_sub_image1d(target: u32, level: i32, xoffset: i32, width: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 }
+
 # wraps glGetCompressedTexImage
 pub fun get_compressed_tex_image(target: u32, level: i32, img: ptr) {
     c.glGetCompressedTexImage(target, level, img);
 }
+
 # wraps glBlendFuncSeparate
 pub fun blend_func_separate(sfactorRGB: u32, dfactorRGB: u32, sfactorAlpha: u32, dfactorAlpha: u32) {
     c.glBlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
 }
+
 # wraps glMultiDrawArrays
 pub fun multi_draw_arrays(mode: u32, first: *i32, count: *i32, drawcount: i32) {
     c.glMultiDrawArrays(mode, first, count, drawcount);
 }
+
 # wraps glMultiDrawElements
 pub fun multi_draw_elements(mode: u32, count: *i32, type: u32, indices: *ptr, drawcount: i32) {
     c.glMultiDrawElements(mode, count, type, indices, drawcount);
 }
+
 # wraps glPointParameterf
 pub fun point_parameterf(pname: u32, param: f32) {
     c.glPointParameterf(pname, param);
 }
+
 # wraps glPointParameterfv
 pub fun point_parameterfv(pname: u32, params: *f32) {
     c.glPointParameterfv(pname, params);
 }
+
 # wraps glPointParameteri
 pub fun point_parameteri(pname: u32, param: i32) {
     c.glPointParameteri(pname, param);
 }
+
 # wraps glPointParameteriv
 pub fun point_parameteriv(pname: u32, params: *i32) {
     c.glPointParameteriv(pname, params);
 }
+
 # wraps glBlendColor
 pub fun blend_color(red: f32, green: f32, blue: f32, alpha: f32) {
     c.glBlendColor(red, green, blue, alpha);
 }
+
 # wraps glBlendEquation
 pub fun blend_equation(mode: u32) {
     c.glBlendEquation(mode);
 }
+
 # wraps glGenQueries
 pub fun gen_queries(n: i32, ids: *u32) {
     c.glGenQueries(n, ids);
 }
+
 # wraps glDeleteQueries
 pub fun delete_queries(n: i32, ids: *u32) {
     c.glDeleteQueries(n, ids);
 }
+
 # wraps glIsQuery
 pub fun is_query(id: u32) bool {
     ret c.glIsQuery(id) != 0;
 }
+
 # wraps glBeginQuery
 pub fun begin_query(target: u32, id: u32) {
     c.glBeginQuery(target, id);
 }
+
 # wraps glEndQuery
 pub fun end_query(target: u32) {
     c.glEndQuery(target);
 }
+
 # wraps glGetQueryiv
 pub fun get_queryiv(target: u32, pname: u32, params: *i32) {
     c.glGetQueryiv(target, pname, params);
 }
+
 # wraps glGetQueryObjectiv
 pub fun get_query_objectiv(id: u32, pname: u32, params: *i32) {
     c.glGetQueryObjectiv(id, pname, params);
 }
+
 # wraps glGetQueryObjectuiv
 pub fun get_query_objectuiv(id: u32, pname: u32, params: *u32) {
     c.glGetQueryObjectuiv(id, pname, params);
 }
+
 # wraps glBindBuffer
 pub fun bind_buffer(target: u32, buffer: u32) {
     c.glBindBuffer(target, buffer);
 }
+
 # wraps glDeleteBuffers
 pub fun delete_buffers(n: i32, buffers: *u32) {
     c.glDeleteBuffers(n, buffers);
 }
+
 # wraps glGenBuffers
 pub fun gen_buffers(n: i32, buffers: *u32) {
     c.glGenBuffers(n, buffers);
 }
+
 # wraps glIsBuffer
 pub fun is_buffer(buffer: u32) bool {
     ret c.glIsBuffer(buffer) != 0;
 }
+
 # wraps glBufferData
 pub fun buffer_data(target: u32, size: i64, data: ptr, usage: u32) {
     c.glBufferData(target, size, data, usage);
 }
+
 # wraps glBufferSubData
 pub fun buffer_sub_data(target: u32, offset: i64, size: i64, data: ptr) {
     c.glBufferSubData(target, offset, size, data);
 }
+
 # wraps glGetBufferSubData
 pub fun get_buffer_sub_data(target: u32, offset: i64, size: i64, data: ptr) {
     c.glGetBufferSubData(target, offset, size, data);
 }
+
 # wraps glMapBuffer
 pub fun map_buffer(target: u32, access: u32) ptr {
     ret c.glMapBuffer(target, access);
 }
+
 # wraps glUnmapBuffer
 pub fun unmap_buffer(target: u32) bool {
     ret c.glUnmapBuffer(target) != 0;
 }
+
 # wraps glGetBufferParameteriv
 pub fun get_buffer_parameteriv(target: u32, pname: u32, params: *i32) {
     c.glGetBufferParameteriv(target, pname, params);
 }
+
 # wraps glGetBufferPointerv
 pub fun get_buffer_pointerv(target: u32, pname: u32, params: *ptr) {
     c.glGetBufferPointerv(target, pname, params);
 }
+
 # wraps glBlendEquationSeparate
 pub fun blend_equation_separate(modeRGB: u32, modeAlpha: u32) {
     c.glBlendEquationSeparate(modeRGB, modeAlpha);
 }
+
 # wraps glDrawBuffers
 pub fun draw_buffers(n: i32, bufs: *u32) {
     c.glDrawBuffers(n, bufs);
 }
+
 # wraps glStencilOpSeparate
 pub fun stencil_op_separate(face: u32, sfail: u32, dpfail: u32, dppass: u32) {
     c.glStencilOpSeparate(face, sfail, dpfail, dppass);
 }
+
 # wraps glStencilFuncSeparate
 pub fun stencil_func_separate(face: u32, func: u32, ref: i32, mask: u32) {
     c.glStencilFuncSeparate(face, func, ref, mask);
 }
+
 # wraps glStencilMaskSeparate
 pub fun stencil_mask_separate(face: u32, mask: u32) {
     c.glStencilMaskSeparate(face, mask);
 }
+
 # wraps glAttachShader
 pub fun attach_shader(program: u32, shader: u32) {
     c.glAttachShader(program, shader);
 }
+
 # wraps glBindAttribLocation
 pub fun bind_attrib_location(program: u32, index: u32, name: str) {
     c.glBindAttribLocation(program, index, name);
 }
+
 # wraps glCompileShader
 pub fun compile_shader(shader: u32) {
     c.glCompileShader(shader);
 }
+
 # wraps glCreateProgram
 pub fun create_program() u32 {
     ret c.glCreateProgram();
 }
+
 # wraps glCreateShader
 pub fun create_shader(type: u32) u32 {
     ret c.glCreateShader(type);
 }
+
 # wraps glDeleteProgram
 pub fun delete_program(program: u32) {
     c.glDeleteProgram(program);
 }
+
 # wraps glDeleteShader
 pub fun delete_shader(shader: u32) {
     c.glDeleteShader(shader);
 }
+
 # wraps glDetachShader
 pub fun detach_shader(program: u32, shader: u32) {
     c.glDetachShader(program, shader);
 }
+
 # wraps glDisableVertexAttribArray
 pub fun disable_vertex_attrib_array(index: u32) {
     c.glDisableVertexAttribArray(index);
 }
+
 # wraps glEnableVertexAttribArray
 pub fun enable_vertex_attrib_array(index: u32) {
     c.glEnableVertexAttribArray(index);
 }
+
 # wraps glGetActiveAttrib
 pub fun get_active_attrib(program: u32, index: u32, bufSize: i32, length: *i32, size: *i32, type: *u32, name: *u8) {
     c.glGetActiveAttrib(program, index, bufSize, length, size, type, name);
 }
+
 # wraps glGetActiveUniform
 pub fun get_active_uniform(program: u32, index: u32, bufSize: i32, length: *i32, size: *i32, type: *u32, name: *u8) {
     c.glGetActiveUniform(program, index, bufSize, length, size, type, name);
 }
+
 # wraps glGetAttachedShaders
 pub fun get_attached_shaders(program: u32, maxCount: i32, count: *i32, shaders: *u32) {
     c.glGetAttachedShaders(program, maxCount, count, shaders);
 }
+
 # wraps glGetAttribLocation
 pub fun get_attrib_location(program: u32, name: str) i32 {
     ret c.glGetAttribLocation(program, name);
 }
+
 # wraps glGetProgramiv
 pub fun get_programiv(program: u32, pname: u32, params: *i32) {
     c.glGetProgramiv(program, pname, params);
 }
+
 # wraps glGetProgramInfoLog
 pub fun get_program_info_log(program: u32, bufSize: i32, length: *i32, infoLog: *u8) {
     c.glGetProgramInfoLog(program, bufSize, length, infoLog);
 }
+
 # wraps glGetShaderiv
 pub fun get_shaderiv(shader: u32, pname: u32, params: *i32) {
     c.glGetShaderiv(shader, pname, params);
 }
+
 # wraps glGetShaderInfoLog
 pub fun get_shader_info_log(shader: u32, bufSize: i32, length: *i32, infoLog: *u8) {
     c.glGetShaderInfoLog(shader, bufSize, length, infoLog);
 }
+
 # wraps glGetShaderSource
 pub fun get_shader_source(shader: u32, bufSize: i32, length: *i32, source: *u8) {
     c.glGetShaderSource(shader, bufSize, length, source);
 }
+
 # wraps glGetUniformLocation
 pub fun get_uniform_location(program: u32, name: str) i32 {
     ret c.glGetUniformLocation(program, name);
 }
+
 # wraps glGetUniformfv
 pub fun get_uniformfv(program: u32, location: i32, params: *f32) {
     c.glGetUniformfv(program, location, params);
 }
+
 # wraps glGetUniformiv
 pub fun get_uniformiv(program: u32, location: i32, params: *i32) {
     c.glGetUniformiv(program, location, params);
 }
+
 # wraps glGetVertexAttribdv
 pub fun get_vertex_attribdv(index: u32, pname: u32, params: *f64) {
     c.glGetVertexAttribdv(index, pname, params);
 }
+
 # wraps glGetVertexAttribfv
 pub fun get_vertex_attribfv(index: u32, pname: u32, params: *f32) {
     c.glGetVertexAttribfv(index, pname, params);
 }
+
 # wraps glGetVertexAttribiv
 pub fun get_vertex_attribiv(index: u32, pname: u32, params: *i32) {
     c.glGetVertexAttribiv(index, pname, params);
 }
+
 # wraps glGetVertexAttribPointerv
 pub fun get_vertex_attrib_pointerv(index: u32, pname: u32, pointer: *ptr) {
     c.glGetVertexAttribPointerv(index, pname, pointer);
 }
+
 # wraps glIsProgram
 pub fun is_program(program: u32) bool {
     ret c.glIsProgram(program) != 0;
 }
+
 # wraps glIsShader
 pub fun is_shader(shader: u32) bool {
     ret c.glIsShader(shader) != 0;
 }
+
 # wraps glLinkProgram
 pub fun link_program(program: u32) {
     c.glLinkProgram(program);
 }
+
 # wraps glShaderSource
 pub fun shader_source(shader: u32, count: i32, string: **u8, length: *i32) {
     c.glShaderSource(shader, count, string, length);
 }
+
 # wraps glUseProgram
 pub fun use_program(program: u32) {
     c.glUseProgram(program);
 }
+
 # wraps glUniform1f
 pub fun uniform1f(location: i32, v0: f32) {
     c.glUniform1f(location, v0);
 }
+
 # wraps glUniform2f
 pub fun uniform2f(location: i32, v0: f32, v1: f32) {
     c.glUniform2f(location, v0, v1);
 }
+
 # wraps glUniform3f
 pub fun uniform3f(location: i32, v0: f32, v1: f32, v2: f32) {
     c.glUniform3f(location, v0, v1, v2);
 }
+
 # wraps glUniform4f
 pub fun uniform4f(location: i32, v0: f32, v1: f32, v2: f32, v3: f32) {
     c.glUniform4f(location, v0, v1, v2, v3);
 }
+
 # wraps glUniform1i
 pub fun uniform1i(location: i32, v0: i32) {
     c.glUniform1i(location, v0);
 }
+
 # wraps glUniform2i
 pub fun uniform2i(location: i32, v0: i32, v1: i32) {
     c.glUniform2i(location, v0, v1);
 }
+
 # wraps glUniform3i
 pub fun uniform3i(location: i32, v0: i32, v1: i32, v2: i32) {
     c.glUniform3i(location, v0, v1, v2);
 }
+
 # wraps glUniform4i
 pub fun uniform4i(location: i32, v0: i32, v1: i32, v2: i32, v3: i32) {
     c.glUniform4i(location, v0, v1, v2, v3);
 }
+
 # wraps glUniform1fv
 pub fun uniform1fv(location: i32, count: i32, value: *f32) {
     c.glUniform1fv(location, count, value);
 }
+
 # wraps glUniform2fv
 pub fun uniform2fv(location: i32, count: i32, value: *f32) {
     c.glUniform2fv(location, count, value);
 }
+
 # wraps glUniform3fv
 pub fun uniform3fv(location: i32, count: i32, value: *f32) {
     c.glUniform3fv(location, count, value);
 }
+
 # wraps glUniform4fv
 pub fun uniform4fv(location: i32, count: i32, value: *f32) {
     c.glUniform4fv(location, count, value);
 }
+
 # wraps glUniform1iv
 pub fun uniform1iv(location: i32, count: i32, value: *i32) {
     c.glUniform1iv(location, count, value);
 }
+
 # wraps glUniform2iv
 pub fun uniform2iv(location: i32, count: i32, value: *i32) {
     c.glUniform2iv(location, count, value);
 }
+
 # wraps glUniform3iv
 pub fun uniform3iv(location: i32, count: i32, value: *i32) {
     c.glUniform3iv(location, count, value);
 }
+
 # wraps glUniform4iv
 pub fun uniform4iv(location: i32, count: i32, value: *i32) {
     c.glUniform4iv(location, count, value);
 }
+
 # wraps glUniformMatrix2fv
 pub fun uniform_matrix2fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix2fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3fv
 pub fun uniform_matrix3fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix3fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4fv
 pub fun uniform_matrix4fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix4fv(location, count, transpose, value);
 }
+
 # wraps glValidateProgram
 pub fun validate_program(program: u32) {
     c.glValidateProgram(program);
 }
+
 # wraps glVertexAttrib1d
 pub fun vertex_attrib1d(index: u32, x: f64) {
     c.glVertexAttrib1d(index, x);
 }
+
 # wraps glVertexAttrib1dv
 pub fun vertex_attrib1dv(index: u32, v: *f64) {
     c.glVertexAttrib1dv(index, v);
 }
+
 # wraps glVertexAttrib1f
 pub fun vertex_attrib1f(index: u32, x: f32) {
     c.glVertexAttrib1f(index, x);
 }
+
 # wraps glVertexAttrib1fv
 pub fun vertex_attrib1fv(index: u32, v: *f32) {
     c.glVertexAttrib1fv(index, v);
 }
+
 # wraps glVertexAttrib1s
 pub fun vertex_attrib1s(index: u32, x: i16) {
     c.glVertexAttrib1s(index, x);
 }
+
 # wraps glVertexAttrib1sv
 pub fun vertex_attrib1sv(index: u32, v: *i16) {
     c.glVertexAttrib1sv(index, v);
 }
+
 # wraps glVertexAttrib2d
 pub fun vertex_attrib2d(index: u32, x: f64, y: f64) {
     c.glVertexAttrib2d(index, x, y);
 }
+
 # wraps glVertexAttrib2dv
 pub fun vertex_attrib2dv(index: u32, v: *f64) {
     c.glVertexAttrib2dv(index, v);
 }
+
 # wraps glVertexAttrib2f
 pub fun vertex_attrib2f(index: u32, x: f32, y: f32) {
     c.glVertexAttrib2f(index, x, y);
 }
+
 # wraps glVertexAttrib2fv
 pub fun vertex_attrib2fv(index: u32, v: *f32) {
     c.glVertexAttrib2fv(index, v);
 }
+
 # wraps glVertexAttrib2s
 pub fun vertex_attrib2s(index: u32, x: i16, y: i16) {
     c.glVertexAttrib2s(index, x, y);
 }
+
 # wraps glVertexAttrib2sv
 pub fun vertex_attrib2sv(index: u32, v: *i16) {
     c.glVertexAttrib2sv(index, v);
 }
+
 # wraps glVertexAttrib3d
 pub fun vertex_attrib3d(index: u32, x: f64, y: f64, z: f64) {
     c.glVertexAttrib3d(index, x, y, z);
 }
+
 # wraps glVertexAttrib3dv
 pub fun vertex_attrib3dv(index: u32, v: *f64) {
     c.glVertexAttrib3dv(index, v);
 }
+
 # wraps glVertexAttrib3f
 pub fun vertex_attrib3f(index: u32, x: f32, y: f32, z: f32) {
     c.glVertexAttrib3f(index, x, y, z);
 }
+
 # wraps glVertexAttrib3fv
 pub fun vertex_attrib3fv(index: u32, v: *f32) {
     c.glVertexAttrib3fv(index, v);
 }
+
 # wraps glVertexAttrib3s
 pub fun vertex_attrib3s(index: u32, x: i16, y: i16, z: i16) {
     c.glVertexAttrib3s(index, x, y, z);
 }
+
 # wraps glVertexAttrib3sv
 pub fun vertex_attrib3sv(index: u32, v: *i16) {
     c.glVertexAttrib3sv(index, v);
 }
+
 # wraps glVertexAttrib4Nbv
 pub fun vertex_attrib4nbv(index: u32, v: *i8) {
     c.glVertexAttrib4Nbv(index, v);
 }
+
 # wraps glVertexAttrib4Niv
 pub fun vertex_attrib4niv(index: u32, v: *i32) {
     c.glVertexAttrib4Niv(index, v);
 }
+
 # wraps glVertexAttrib4Nsv
 pub fun vertex_attrib4nsv(index: u32, v: *i16) {
     c.glVertexAttrib4Nsv(index, v);
 }
+
 # wraps glVertexAttrib4Nub
 pub fun vertex_attrib4nub(index: u32, x: u8, y: u8, z: u8, w: u8) {
     c.glVertexAttrib4Nub(index, x, y, z, w);
 }
+
 # wraps glVertexAttrib4Nubv
 pub fun vertex_attrib4nubv(index: u32, v: *u8) {
     c.glVertexAttrib4Nubv(index, v);
 }
+
 # wraps glVertexAttrib4Nuiv
 pub fun vertex_attrib4nuiv(index: u32, v: *u32) {
     c.glVertexAttrib4Nuiv(index, v);
 }
+
 # wraps glVertexAttrib4Nusv
 pub fun vertex_attrib4nusv(index: u32, v: *u16) {
     c.glVertexAttrib4Nusv(index, v);
 }
+
 # wraps glVertexAttrib4bv
 pub fun vertex_attrib4bv(index: u32, v: *i8) {
     c.glVertexAttrib4bv(index, v);
 }
+
 # wraps glVertexAttrib4d
 pub fun vertex_attrib4d(index: u32, x: f64, y: f64, z: f64, w: f64) {
     c.glVertexAttrib4d(index, x, y, z, w);
 }
+
 # wraps glVertexAttrib4dv
 pub fun vertex_attrib4dv(index: u32, v: *f64) {
     c.glVertexAttrib4dv(index, v);
 }
+
 # wraps glVertexAttrib4f
 pub fun vertex_attrib4f(index: u32, x: f32, y: f32, z: f32, w: f32) {
     c.glVertexAttrib4f(index, x, y, z, w);
 }
+
 # wraps glVertexAttrib4fv
 pub fun vertex_attrib4fv(index: u32, v: *f32) {
     c.glVertexAttrib4fv(index, v);
 }
+
 # wraps glVertexAttrib4iv
 pub fun vertex_attrib4iv(index: u32, v: *i32) {
     c.glVertexAttrib4iv(index, v);
 }
+
 # wraps glVertexAttrib4s
 pub fun vertex_attrib4s(index: u32, x: i16, y: i16, z: i16, w: i16) {
     c.glVertexAttrib4s(index, x, y, z, w);
 }
+
 # wraps glVertexAttrib4sv
 pub fun vertex_attrib4sv(index: u32, v: *i16) {
     c.glVertexAttrib4sv(index, v);
 }
+
 # wraps glVertexAttrib4ubv
 pub fun vertex_attrib4ubv(index: u32, v: *u8) {
     c.glVertexAttrib4ubv(index, v);
 }
+
 # wraps glVertexAttrib4uiv
 pub fun vertex_attrib4uiv(index: u32, v: *u32) {
     c.glVertexAttrib4uiv(index, v);
 }
+
 # wraps glVertexAttrib4usv
 pub fun vertex_attrib4usv(index: u32, v: *u16) {
     c.glVertexAttrib4usv(index, v);
 }
+
 # wraps glVertexAttribPointer
 pub fun vertex_attrib_pointer(index: u32, size: i32, type: u32, normalized: bool, stride: i32, pointer: ptr) {
     c.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
 }
+
 # wraps glUniformMatrix2x3fv
 pub fun uniform_matrix2x3fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix2x3fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3x2fv
 pub fun uniform_matrix3x2fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix3x2fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix2x4fv
 pub fun uniform_matrix2x4fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix2x4fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4x2fv
 pub fun uniform_matrix4x2fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix4x2fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3x4fv
 pub fun uniform_matrix3x4fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix3x4fv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4x3fv
 pub fun uniform_matrix4x3fv(location: i32, count: i32, transpose: bool, value: *f32) {
     c.glUniformMatrix4x3fv(location, count, transpose, value);
 }
+
 # wraps glColorMaski
 pub fun color_maski(index: u32, r: bool, g: bool, b: bool, a: bool) {
     c.glColorMaski(index, r, g, b, a);
 }
+
 # wraps glGetBooleani_v
 pub fun get_booleani_v(target: u32, index: u32, data: *u8) {
     c.glGetBooleani_v(target, index, data);
 }
+
 # wraps glGetIntegeri_v
 pub fun get_integeri_v(target: u32, index: u32, data: *i32) {
     c.glGetIntegeri_v(target, index, data);
 }
+
 # wraps glEnablei
 pub fun enablei(target: u32, index: u32) {
     c.glEnablei(target, index);
 }
+
 # wraps glDisablei
 pub fun disablei(target: u32, index: u32) {
     c.glDisablei(target, index);
 }
+
 # wraps glIsEnabledi
 pub fun is_enabledi(target: u32, index: u32) bool {
     ret c.glIsEnabledi(target, index) != 0;
 }
+
 # wraps glBeginTransformFeedback
 pub fun begin_transform_feedback(primitiveMode: u32) {
     c.glBeginTransformFeedback(primitiveMode);
 }
+
 # wraps glEndTransformFeedback
 pub fun end_transform_feedback() {
     c.glEndTransformFeedback();
 }
+
 # wraps glBindBufferRange
 pub fun bind_buffer_range(target: u32, index: u32, buffer: u32, offset: i64, size: i64) {
     c.glBindBufferRange(target, index, buffer, offset, size);
 }
+
 # wraps glBindBufferBase
 pub fun bind_buffer_base(target: u32, index: u32, buffer: u32) {
     c.glBindBufferBase(target, index, buffer);
 }
+
 # wraps glTransformFeedbackVaryings
 pub fun transform_feedback_varyings(program: u32, count: i32, varyings: **u8, bufferMode: u32) {
     c.glTransformFeedbackVaryings(program, count, varyings, bufferMode);
 }
+
 # wraps glGetTransformFeedbackVarying
 pub fun get_transform_feedback_varying(program: u32, index: u32, bufSize: i32, length: *i32, size: *i32, type: *u32, name: *u8) {
     c.glGetTransformFeedbackVarying(program, index, bufSize, length, size, type, name);
 }
+
 # wraps glClampColor
 pub fun clamp_color(target: u32, clamp: u32) {
     c.glClampColor(target, clamp);
 }
+
 # wraps glBeginConditionalRender
 pub fun begin_conditional_render(id: u32, mode: u32) {
     c.glBeginConditionalRender(id, mode);
 }
+
 # wraps glEndConditionalRender
 pub fun end_conditional_render() {
     c.glEndConditionalRender();
 }
+
 # wraps glVertexAttribIPointer
 pub fun vertex_attrib_ipointer(index: u32, size: i32, type: u32, stride: i32, pointer: ptr) {
     c.glVertexAttribIPointer(index, size, type, stride, pointer);
 }
+
 # wraps glGetVertexAttribIiv
 pub fun get_vertex_attrib_iiv(index: u32, pname: u32, params: *i32) {
     c.glGetVertexAttribIiv(index, pname, params);
 }
+
 # wraps glGetVertexAttribIuiv
 pub fun get_vertex_attrib_iuiv(index: u32, pname: u32, params: *u32) {
     c.glGetVertexAttribIuiv(index, pname, params);
 }
+
 # wraps glVertexAttribI1i
 pub fun vertex_attrib_i1i(index: u32, x: i32) {
     c.glVertexAttribI1i(index, x);
 }
+
 # wraps glVertexAttribI2i
 pub fun vertex_attrib_i2i(index: u32, x: i32, y: i32) {
     c.glVertexAttribI2i(index, x, y);
 }
+
 # wraps glVertexAttribI3i
 pub fun vertex_attrib_i3i(index: u32, x: i32, y: i32, z: i32) {
     c.glVertexAttribI3i(index, x, y, z);
 }
+
 # wraps glVertexAttribI4i
 pub fun vertex_attrib_i4i(index: u32, x: i32, y: i32, z: i32, w: i32) {
     c.glVertexAttribI4i(index, x, y, z, w);
 }
+
 # wraps glVertexAttribI1ui
 pub fun vertex_attrib_i1ui(index: u32, x: u32) {
     c.glVertexAttribI1ui(index, x);
 }
+
 # wraps glVertexAttribI2ui
 pub fun vertex_attrib_i2ui(index: u32, x: u32, y: u32) {
     c.glVertexAttribI2ui(index, x, y);
 }
+
 # wraps glVertexAttribI3ui
 pub fun vertex_attrib_i3ui(index: u32, x: u32, y: u32, z: u32) {
     c.glVertexAttribI3ui(index, x, y, z);
 }
+
 # wraps glVertexAttribI4ui
 pub fun vertex_attrib_i4ui(index: u32, x: u32, y: u32, z: u32, w: u32) {
     c.glVertexAttribI4ui(index, x, y, z, w);
 }
+
 # wraps glVertexAttribI1iv
 pub fun vertex_attrib_i1iv(index: u32, v: *i32) {
     c.glVertexAttribI1iv(index, v);
 }
+
 # wraps glVertexAttribI2iv
 pub fun vertex_attrib_i2iv(index: u32, v: *i32) {
     c.glVertexAttribI2iv(index, v);
 }
+
 # wraps glVertexAttribI3iv
 pub fun vertex_attrib_i3iv(index: u32, v: *i32) {
     c.glVertexAttribI3iv(index, v);
 }
+
 # wraps glVertexAttribI4iv
 pub fun vertex_attrib_i4iv(index: u32, v: *i32) {
     c.glVertexAttribI4iv(index, v);
 }
+
 # wraps glVertexAttribI1uiv
 pub fun vertex_attrib_i1uiv(index: u32, v: *u32) {
     c.glVertexAttribI1uiv(index, v);
 }
+
 # wraps glVertexAttribI2uiv
 pub fun vertex_attrib_i2uiv(index: u32, v: *u32) {
     c.glVertexAttribI2uiv(index, v);
 }
+
 # wraps glVertexAttribI3uiv
 pub fun vertex_attrib_i3uiv(index: u32, v: *u32) {
     c.glVertexAttribI3uiv(index, v);
 }
+
 # wraps glVertexAttribI4uiv
 pub fun vertex_attrib_i4uiv(index: u32, v: *u32) {
     c.glVertexAttribI4uiv(index, v);
 }
+
 # wraps glVertexAttribI4bv
 pub fun vertex_attrib_i4bv(index: u32, v: *i8) {
     c.glVertexAttribI4bv(index, v);
 }
+
 # wraps glVertexAttribI4sv
 pub fun vertex_attrib_i4sv(index: u32, v: *i16) {
     c.glVertexAttribI4sv(index, v);
 }
+
 # wraps glVertexAttribI4ubv
 pub fun vertex_attrib_i4ubv(index: u32, v: *u8) {
     c.glVertexAttribI4ubv(index, v);
 }
+
 # wraps glVertexAttribI4usv
 pub fun vertex_attrib_i4usv(index: u32, v: *u16) {
     c.glVertexAttribI4usv(index, v);
 }
+
 # wraps glGetUniformuiv
 pub fun get_uniformuiv(program: u32, location: i32, params: *u32) {
     c.glGetUniformuiv(program, location, params);
 }
+
 # wraps glBindFragDataLocation
 pub fun bind_frag_data_location(program: u32, color: u32, name: str) {
     c.glBindFragDataLocation(program, color, name);
 }
+
 # wraps glGetFragDataLocation
 pub fun get_frag_data_location(program: u32, name: str) i32 {
     ret c.glGetFragDataLocation(program, name);
 }
+
 # wraps glUniform1ui
 pub fun uniform1ui(location: i32, v0: u32) {
     c.glUniform1ui(location, v0);
 }
+
 # wraps glUniform2ui
 pub fun uniform2ui(location: i32, v0: u32, v1: u32) {
     c.glUniform2ui(location, v0, v1);
 }
+
 # wraps glUniform3ui
 pub fun uniform3ui(location: i32, v0: u32, v1: u32, v2: u32) {
     c.glUniform3ui(location, v0, v1, v2);
 }
+
 # wraps glUniform4ui
 pub fun uniform4ui(location: i32, v0: u32, v1: u32, v2: u32, v3: u32) {
     c.glUniform4ui(location, v0, v1, v2, v3);
 }
+
 # wraps glUniform1uiv
 pub fun uniform1uiv(location: i32, count: i32, value: *u32) {
     c.glUniform1uiv(location, count, value);
 }
+
 # wraps glUniform2uiv
 pub fun uniform2uiv(location: i32, count: i32, value: *u32) {
     c.glUniform2uiv(location, count, value);
 }
+
 # wraps glUniform3uiv
 pub fun uniform3uiv(location: i32, count: i32, value: *u32) {
     c.glUniform3uiv(location, count, value);
 }
+
 # wraps glUniform4uiv
 pub fun uniform4uiv(location: i32, count: i32, value: *u32) {
     c.glUniform4uiv(location, count, value);
 }
+
 # wraps glTexParameterIiv
 pub fun tex_parameter_iiv(target: u32, pname: u32, params: *i32) {
     c.glTexParameterIiv(target, pname, params);
 }
+
 # wraps glTexParameterIuiv
 pub fun tex_parameter_iuiv(target: u32, pname: u32, params: *u32) {
     c.glTexParameterIuiv(target, pname, params);
 }
+
 # wraps glGetTexParameterIiv
 pub fun get_tex_parameter_iiv(target: u32, pname: u32, params: *i32) {
     c.glGetTexParameterIiv(target, pname, params);
 }
+
 # wraps glGetTexParameterIuiv
 pub fun get_tex_parameter_iuiv(target: u32, pname: u32, params: *u32) {
     c.glGetTexParameterIuiv(target, pname, params);
 }
+
 # wraps glClearBufferiv
 pub fun clear_bufferiv(buffer: u32, drawbuffer: i32, value: *i32) {
     c.glClearBufferiv(buffer, drawbuffer, value);
 }
+
 # wraps glClearBufferuiv
 pub fun clear_bufferuiv(buffer: u32, drawbuffer: i32, value: *u32) {
     c.glClearBufferuiv(buffer, drawbuffer, value);
 }
+
 # wraps glClearBufferfv
 pub fun clear_bufferfv(buffer: u32, drawbuffer: i32, value: *f32) {
     c.glClearBufferfv(buffer, drawbuffer, value);
 }
+
 # wraps glClearBufferfi
 pub fun clear_bufferfi(buffer: u32, drawbuffer: i32, depth: f32, stencil: i32) {
     c.glClearBufferfi(buffer, drawbuffer, depth, stencil);
 }
+
 # wraps glGetStringi
 pub fun get_stringi(name: u32, index: u32) *u8 {
     ret c.glGetStringi(name, index);
 }
+
 # wraps glIsRenderbuffer
 pub fun is_renderbuffer(renderbuffer: u32) bool {
     ret c.glIsRenderbuffer(renderbuffer) != 0;
 }
+
 # wraps glBindRenderbuffer
 pub fun bind_renderbuffer(target: u32, renderbuffer: u32) {
     c.glBindRenderbuffer(target, renderbuffer);
 }
+
 # wraps glDeleteRenderbuffers
 pub fun delete_renderbuffers(n: i32, renderbuffers: *u32) {
     c.glDeleteRenderbuffers(n, renderbuffers);
 }
+
 # wraps glGenRenderbuffers
 pub fun gen_renderbuffers(n: i32, renderbuffers: *u32) {
     c.glGenRenderbuffers(n, renderbuffers);
 }
+
 # wraps glRenderbufferStorage
 pub fun renderbuffer_storage(target: u32, internalformat: u32, width: i32, height: i32) {
     c.glRenderbufferStorage(target, internalformat, width, height);
 }
+
 # wraps glGetRenderbufferParameteriv
 pub fun get_renderbuffer_parameteriv(target: u32, pname: u32, params: *i32) {
     c.glGetRenderbufferParameteriv(target, pname, params);
 }
+
 # wraps glIsFramebuffer
 pub fun is_framebuffer(framebuffer: u32) bool {
     ret c.glIsFramebuffer(framebuffer) != 0;
 }
+
 # wraps glBindFramebuffer
 pub fun bind_framebuffer(target: u32, framebuffer: u32) {
     c.glBindFramebuffer(target, framebuffer);
 }
+
 # wraps glDeleteFramebuffers
 pub fun delete_framebuffers(n: i32, framebuffers: *u32) {
     c.glDeleteFramebuffers(n, framebuffers);
 }
+
 # wraps glGenFramebuffers
 pub fun gen_framebuffers(n: i32, framebuffers: *u32) {
     c.glGenFramebuffers(n, framebuffers);
 }
+
 # wraps glCheckFramebufferStatus
 pub fun check_framebuffer_status(target: u32) u32 {
     ret c.glCheckFramebufferStatus(target);
 }
+
 # wraps glFramebufferTexture1D
 pub fun framebuffer_texture1d(target: u32, attachment: u32, textarget: u32, texture: u32, level: i32) {
     c.glFramebufferTexture1D(target, attachment, textarget, texture, level);
 }
+
 # wraps glFramebufferTexture2D
 pub fun framebuffer_texture2d(target: u32, attachment: u32, textarget: u32, texture: u32, level: i32) {
     c.glFramebufferTexture2D(target, attachment, textarget, texture, level);
 }
+
 # wraps glFramebufferTexture3D
 pub fun framebuffer_texture3d(target: u32, attachment: u32, textarget: u32, texture: u32, level: i32, zoffset: i32) {
     c.glFramebufferTexture3D(target, attachment, textarget, texture, level, zoffset);
 }
+
 # wraps glFramebufferRenderbuffer
 pub fun framebuffer_renderbuffer(target: u32, attachment: u32, renderbuffertarget: u32, renderbuffer: u32) {
     c.glFramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
 }
+
 # wraps glGetFramebufferAttachmentParameteriv
 pub fun get_framebuffer_attachment_parameteriv(target: u32, attachment: u32, pname: u32, params: *i32) {
     c.glGetFramebufferAttachmentParameteriv(target, attachment, pname, params);
 }
+
 # wraps glGenerateMipmap
 pub fun generate_mipmap(target: u32) {
     c.glGenerateMipmap(target);
 }
+
 # wraps glBlitFramebuffer
 pub fun blit_framebuffer(srcX0: i32, srcY0: i32, srcX1: i32, srcY1: i32, dstX0: i32, dstY0: i32, dstX1: i32, dstY1: i32, mask: u32, filter: u32) {
     c.glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }
+
 # wraps glRenderbufferStorageMultisample
 pub fun renderbuffer_storage_multisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32) {
     c.glRenderbufferStorageMultisample(target, samples, internalformat, width, height);
 }
+
 # wraps glFramebufferTextureLayer
 pub fun framebuffer_texture_layer(target: u32, attachment: u32, texture: u32, level: i32, layer: i32) {
     c.glFramebufferTextureLayer(target, attachment, texture, level, layer);
 }
+
 # wraps glMapBufferRange
 pub fun map_buffer_range(target: u32, offset: i64, length: i64, access: u32) ptr {
     ret c.glMapBufferRange(target, offset, length, access);
 }
+
 # wraps glFlushMappedBufferRange
 pub fun flush_mapped_buffer_range(target: u32, offset: i64, length: i64) {
     c.glFlushMappedBufferRange(target, offset, length);
 }
+
 # wraps glBindVertexArray
 pub fun bind_vertex_array(array: u32) {
     c.glBindVertexArray(array);
 }
+
 # wraps glDeleteVertexArrays
 pub fun delete_vertex_arrays(n: i32, arrays: *u32) {
     c.glDeleteVertexArrays(n, arrays);
 }
+
 # wraps glGenVertexArrays
 pub fun gen_vertex_arrays(n: i32, arrays: *u32) {
     c.glGenVertexArrays(n, arrays);
 }
+
 # wraps glIsVertexArray
 pub fun is_vertex_array(array: u32) bool {
     ret c.glIsVertexArray(array) != 0;
 }
+
 # wraps glDrawArraysInstanced
 pub fun draw_arrays_instanced(mode: u32, first: i32, count: i32, instancecount: i32) {
     c.glDrawArraysInstanced(mode, first, count, instancecount);
 }
+
 # wraps glDrawElementsInstanced
 pub fun draw_elements_instanced(mode: u32, count: i32, type: u32, indices: ptr, instancecount: i32) {
     c.glDrawElementsInstanced(mode, count, type, indices, instancecount);
 }
+
 # wraps glTexBuffer
 pub fun tex_buffer(target: u32, internalformat: u32, buffer: u32) {
     c.glTexBuffer(target, internalformat, buffer);
 }
+
 # wraps glPrimitiveRestartIndex
 pub fun primitive_restart_index(index: u32) {
     c.glPrimitiveRestartIndex(index);
 }
+
 # wraps glCopyBufferSubData
 pub fun copy_buffer_sub_data(readTarget: u32, writeTarget: u32, readOffset: i64, writeOffset: i64, size: i64) {
     c.glCopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
 }
+
 # wraps glGetUniformIndices
 pub fun get_uniform_indices(program: u32, uniformCount: i32, uniformNames: **u8, uniformIndices: *u32) {
     c.glGetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
 }
+
 # wraps glGetActiveUniformsiv
 pub fun get_active_uniformsiv(program: u32, uniformCount: i32, uniformIndices: *u32, pname: u32, params: *i32) {
     c.glGetActiveUniformsiv(program, uniformCount, uniformIndices, pname, params);
 }
+
 # wraps glGetActiveUniformName
 pub fun get_active_uniform_name(program: u32, uniformIndex: u32, bufSize: i32, length: *i32, uniformName: *u8) {
     c.glGetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
 }
+
 # wraps glGetUniformBlockIndex
 pub fun get_uniform_block_index(program: u32, uniformBlockName: str) u32 {
     ret c.glGetUniformBlockIndex(program, uniformBlockName);
 }
+
 # wraps glGetActiveUniformBlockiv
 pub fun get_active_uniform_blockiv(program: u32, uniformBlockIndex: u32, pname: u32, params: *i32) {
     c.glGetActiveUniformBlockiv(program, uniformBlockIndex, pname, params);
 }
+
 # wraps glGetActiveUniformBlockName
 pub fun get_active_uniform_block_name(program: u32, uniformBlockIndex: u32, bufSize: i32, length: *i32, uniformBlockName: *u8) {
     c.glGetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
 }
+
 # wraps glUniformBlockBinding
 pub fun uniform_block_binding(program: u32, uniformBlockIndex: u32, uniformBlockBinding: u32) {
     c.glUniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
 }
+
 # wraps glDrawElementsBaseVertex
 pub fun draw_elements_base_vertex(mode: u32, count: i32, type: u32, indices: ptr, basevertex: i32) {
     c.glDrawElementsBaseVertex(mode, count, type, indices, basevertex);
 }
+
 # wraps glDrawRangeElementsBaseVertex
 pub fun draw_range_elements_base_vertex(mode: u32, start: u32, end: u32, count: i32, type: u32, indices: ptr, basevertex: i32) {
     c.glDrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
 }
+
 # wraps glDrawElementsInstancedBaseVertex
 pub fun draw_elements_instanced_base_vertex(mode: u32, count: i32, type: u32, indices: ptr, instancecount: i32, basevertex: i32) {
     c.glDrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
 }
+
 # wraps glMultiDrawElementsBaseVertex
 pub fun multi_draw_elements_base_vertex(mode: u32, count: *i32, type: u32, indices: *ptr, drawcount: i32, basevertex: *i32) {
     c.glMultiDrawElementsBaseVertex(mode, count, type, indices, drawcount, basevertex);
 }
+
 # wraps glProvokingVertex
 pub fun provoking_vertex(mode: u32) {
     c.glProvokingVertex(mode);
 }
+
 # wraps glFenceSync
 pub fun fence_sync(condition: u32, flags: u32) ptr {
     ret c.glFenceSync(condition, flags);
 }
+
 # wraps glIsSync
 pub fun is_sync(sync: ptr) bool {
     ret c.glIsSync(sync) != 0;
 }
+
 # wraps glDeleteSync
 pub fun delete_sync(sync: ptr) {
     c.glDeleteSync(sync);
 }
+
 # wraps glClientWaitSync
 pub fun client_wait_sync(sync: ptr, flags: u32, timeout: u64) u32 {
     ret c.glClientWaitSync(sync, flags, timeout);
 }
+
 # wraps glWaitSync
 pub fun wait_sync(sync: ptr, flags: u32, timeout: u64) {
     c.glWaitSync(sync, flags, timeout);
 }
+
 # wraps glGetInteger64v
 pub fun get_integer64v(pname: u32, data: *i64) {
     c.glGetInteger64v(pname, data);
 }
+
 # wraps glGetSynciv
 pub fun get_synciv(sync: ptr, pname: u32, count: i32, length: *i32, values: *i32) {
     c.glGetSynciv(sync, pname, count, length, values);
 }
+
 # wraps glGetInteger64i_v
 pub fun get_integer64i_v(target: u32, index: u32, data: *i64) {
     c.glGetInteger64i_v(target, index, data);
 }
+
 # wraps glGetBufferParameteri64v
 pub fun get_buffer_parameteri64v(target: u32, pname: u32, params: *i64) {
     c.glGetBufferParameteri64v(target, pname, params);
 }
+
 # wraps glFramebufferTexture
 pub fun framebuffer_texture(target: u32, attachment: u32, texture: u32, level: i32) {
     c.glFramebufferTexture(target, attachment, texture, level);
 }
+
 # wraps glTexImage2DMultisample
 pub fun tex_image2dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
     c.glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
+
 # wraps glTexImage3DMultisample
 pub fun tex_image3dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
     c.glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 }
+
 # wraps glGetMultisamplefv
 pub fun get_multisamplefv(pname: u32, index: u32, val_: *f32) {
     c.glGetMultisamplefv(pname, index, val_);
 }
+
 # wraps glSampleMaski
 pub fun sample_maski(maskNumber: u32, mask: u32) {
     c.glSampleMaski(maskNumber, mask);
 }
+
 # wraps glBindFragDataLocationIndexed
 pub fun bind_frag_data_location_indexed(program: u32, colorNumber: u32, index: u32, name: str) {
     c.glBindFragDataLocationIndexed(program, colorNumber, index, name);
 }
+
 # wraps glGetFragDataIndex
 pub fun get_frag_data_index(program: u32, name: str) i32 {
     ret c.glGetFragDataIndex(program, name);
 }
+
 # wraps glGenSamplers
 pub fun gen_samplers(count: i32, samplers: *u32) {
     c.glGenSamplers(count, samplers);
 }
+
 # wraps glDeleteSamplers
 pub fun delete_samplers(count: i32, samplers: *u32) {
     c.glDeleteSamplers(count, samplers);
 }
+
 # wraps glIsSampler
 pub fun is_sampler(sampler: u32) bool {
     ret c.glIsSampler(sampler) != 0;
 }
+
 # wraps glBindSampler
 pub fun bind_sampler(unit: u32, sampler: u32) {
     c.glBindSampler(unit, sampler);
 }
+
 # wraps glSamplerParameteri
 pub fun sampler_parameteri(sampler: u32, pname: u32, param: i32) {
     c.glSamplerParameteri(sampler, pname, param);
 }
+
 # wraps glSamplerParameteriv
 pub fun sampler_parameteriv(sampler: u32, pname: u32, param: *i32) {
     c.glSamplerParameteriv(sampler, pname, param);
 }
+
 # wraps glSamplerParameterf
 pub fun sampler_parameterf(sampler: u32, pname: u32, param: f32) {
     c.glSamplerParameterf(sampler, pname, param);
 }
+
 # wraps glSamplerParameterfv
 pub fun sampler_parameterfv(sampler: u32, pname: u32, param: *f32) {
     c.glSamplerParameterfv(sampler, pname, param);
 }
+
 # wraps glSamplerParameterIiv
 pub fun sampler_parameter_iiv(sampler: u32, pname: u32, param: *i32) {
     c.glSamplerParameterIiv(sampler, pname, param);
 }
+
 # wraps glSamplerParameterIuiv
 pub fun sampler_parameter_iuiv(sampler: u32, pname: u32, param: *u32) {
     c.glSamplerParameterIuiv(sampler, pname, param);
 }
+
 # wraps glGetSamplerParameteriv
 pub fun get_sampler_parameteriv(sampler: u32, pname: u32, params: *i32) {
     c.glGetSamplerParameteriv(sampler, pname, params);
 }
+
 # wraps glGetSamplerParameterIiv
 pub fun get_sampler_parameter_iiv(sampler: u32, pname: u32, params: *i32) {
     c.glGetSamplerParameterIiv(sampler, pname, params);
 }
+
 # wraps glGetSamplerParameterfv
 pub fun get_sampler_parameterfv(sampler: u32, pname: u32, params: *f32) {
     c.glGetSamplerParameterfv(sampler, pname, params);
 }
+
 # wraps glGetSamplerParameterIuiv
 pub fun get_sampler_parameter_iuiv(sampler: u32, pname: u32, params: *u32) {
     c.glGetSamplerParameterIuiv(sampler, pname, params);
 }
+
 # wraps glQueryCounter
 pub fun query_counter(id: u32, target: u32) {
     c.glQueryCounter(id, target);
 }
+
 # wraps glGetQueryObjecti64v
 pub fun get_query_objecti64v(id: u32, pname: u32, params: *i64) {
     c.glGetQueryObjecti64v(id, pname, params);
 }
+
 # wraps glGetQueryObjectui64v
 pub fun get_query_objectui64v(id: u32, pname: u32, params: *u64) {
     c.glGetQueryObjectui64v(id, pname, params);
 }
+
 # wraps glVertexAttribDivisor
 pub fun vertex_attrib_divisor(index: u32, divisor: u32) {
     c.glVertexAttribDivisor(index, divisor);
 }
+
 # wraps glVertexAttribP1ui
 pub fun vertex_attrib_p1ui(index: u32, type: u32, normalized: bool, value: u32) {
     c.glVertexAttribP1ui(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP1uiv
 pub fun vertex_attrib_p1uiv(index: u32, type: u32, normalized: bool, value: *u32) {
     c.glVertexAttribP1uiv(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP2ui
 pub fun vertex_attrib_p2ui(index: u32, type: u32, normalized: bool, value: u32) {
     c.glVertexAttribP2ui(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP2uiv
 pub fun vertex_attrib_p2uiv(index: u32, type: u32, normalized: bool, value: *u32) {
     c.glVertexAttribP2uiv(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP3ui
 pub fun vertex_attrib_p3ui(index: u32, type: u32, normalized: bool, value: u32) {
     c.glVertexAttribP3ui(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP3uiv
 pub fun vertex_attrib_p3uiv(index: u32, type: u32, normalized: bool, value: *u32) {
     c.glVertexAttribP3uiv(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP4ui
 pub fun vertex_attrib_p4ui(index: u32, type: u32, normalized: bool, value: u32) {
     c.glVertexAttribP4ui(index, type, normalized, value);
 }
+
 # wraps glVertexAttribP4uiv
 pub fun vertex_attrib_p4uiv(index: u32, type: u32, normalized: bool, value: *u32) {
     c.glVertexAttribP4uiv(index, type, normalized, value);
 }
+
 # wraps glMinSampleShading
 pub fun min_sample_shading(value: f32) {
     c.glMinSampleShading(value);
 }
+
 # wraps glBlendEquationi
 pub fun blend_equationi(buf: u32, mode: u32) {
     c.glBlendEquationi(buf, mode);
 }
+
 # wraps glBlendEquationSeparatei
 pub fun blend_equation_separatei(buf: u32, modeRGB: u32, modeAlpha: u32) {
     c.glBlendEquationSeparatei(buf, modeRGB, modeAlpha);
 }
+
 # wraps glBlendFunci
 pub fun blend_funci(buf: u32, src: u32, dst: u32) {
     c.glBlendFunci(buf, src, dst);
 }
+
 # wraps glBlendFuncSeparatei
 pub fun blend_func_separatei(buf: u32, srcRGB: u32, dstRGB: u32, srcAlpha: u32, dstAlpha: u32) {
     c.glBlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
 }
+
 # wraps glDrawArraysIndirect
 pub fun draw_arrays_indirect(mode: u32, indirect: ptr) {
     c.glDrawArraysIndirect(mode, indirect);
 }
+
 # wraps glDrawElementsIndirect
 pub fun draw_elements_indirect(mode: u32, type: u32, indirect: ptr) {
     c.glDrawElementsIndirect(mode, type, indirect);
 }
+
 # wraps glUniform1d
 pub fun uniform1d(location: i32, x: f64) {
     c.glUniform1d(location, x);
 }
+
 # wraps glUniform2d
 pub fun uniform2d(location: i32, x: f64, y: f64) {
     c.glUniform2d(location, x, y);
 }
+
 # wraps glUniform3d
 pub fun uniform3d(location: i32, x: f64, y: f64, z: f64) {
     c.glUniform3d(location, x, y, z);
 }
+
 # wraps glUniform4d
 pub fun uniform4d(location: i32, x: f64, y: f64, z: f64, w: f64) {
     c.glUniform4d(location, x, y, z, w);
 }
+
 # wraps glUniform1dv
 pub fun uniform1dv(location: i32, count: i32, value: *f64) {
     c.glUniform1dv(location, count, value);
 }
+
 # wraps glUniform2dv
 pub fun uniform2dv(location: i32, count: i32, value: *f64) {
     c.glUniform2dv(location, count, value);
 }
+
 # wraps glUniform3dv
 pub fun uniform3dv(location: i32, count: i32, value: *f64) {
     c.glUniform3dv(location, count, value);
 }
+
 # wraps glUniform4dv
 pub fun uniform4dv(location: i32, count: i32, value: *f64) {
     c.glUniform4dv(location, count, value);
 }
+
 # wraps glUniformMatrix2dv
 pub fun uniform_matrix2dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix2dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3dv
 pub fun uniform_matrix3dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix3dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4dv
 pub fun uniform_matrix4dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix4dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix2x3dv
 pub fun uniform_matrix2x3dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix2x3dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix2x4dv
 pub fun uniform_matrix2x4dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix2x4dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3x2dv
 pub fun uniform_matrix3x2dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix3x2dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix3x4dv
 pub fun uniform_matrix3x4dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix3x4dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4x2dv
 pub fun uniform_matrix4x2dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix4x2dv(location, count, transpose, value);
 }
+
 # wraps glUniformMatrix4x3dv
 pub fun uniform_matrix4x3dv(location: i32, count: i32, transpose: bool, value: *f64) {
     c.glUniformMatrix4x3dv(location, count, transpose, value);
 }
+
 # wraps glGetUniformdv
 pub fun get_uniformdv(program: u32, location: i32, params: *f64) {
     c.glGetUniformdv(program, location, params);
 }
+
 # wraps glGetSubroutineUniformLocation
 pub fun get_subroutine_uniform_location(program: u32, shadertype: u32, name: str) i32 {
     ret c.glGetSubroutineUniformLocation(program, shadertype, name);
 }
+
 # wraps glGetSubroutineIndex
 pub fun get_subroutine_index(program: u32, shadertype: u32, name: str) u32 {
     ret c.glGetSubroutineIndex(program, shadertype, name);
 }
+
 # wraps glGetActiveSubroutineUniformiv
 pub fun get_active_subroutine_uniformiv(program: u32, shadertype: u32, index: u32, pname: u32, values: *i32) {
     c.glGetActiveSubroutineUniformiv(program, shadertype, index, pname, values);
 }
+
 # wraps glGetActiveSubroutineUniformName
 pub fun get_active_subroutine_uniform_name(program: u32, shadertype: u32, index: u32, bufSize: i32, length: *i32, name: *u8) {
     c.glGetActiveSubroutineUniformName(program, shadertype, index, bufSize, length, name);
 }
+
 # wraps glGetActiveSubroutineName
 pub fun get_active_subroutine_name(program: u32, shadertype: u32, index: u32, bufSize: i32, length: *i32, name: *u8) {
     c.glGetActiveSubroutineName(program, shadertype, index, bufSize, length, name);
 }
+
 # wraps glUniformSubroutinesuiv
 pub fun uniform_subroutinesuiv(shadertype: u32, count: i32, indices: *u32) {
     c.glUniformSubroutinesuiv(shadertype, count, indices);
 }
+
 # wraps glGetUniformSubroutineuiv
 pub fun get_uniform_subroutineuiv(shadertype: u32, location: i32, params: *u32) {
     c.glGetUniformSubroutineuiv(shadertype, location, params);
 }
+
 # wraps glGetProgramStageiv
 pub fun get_program_stageiv(program: u32, shadertype: u32, pname: u32, values: *i32) {
     c.glGetProgramStageiv(program, shadertype, pname, values);
 }
+
 # wraps glPatchParameteri
 pub fun patch_parameteri(pname: u32, value: i32) {
     c.glPatchParameteri(pname, value);
 }
+
 # wraps glPatchParameterfv
 pub fun patch_parameterfv(pname: u32, values: *f32) {
     c.glPatchParameterfv(pname, values);
 }
+
 # wraps glBindTransformFeedback
 pub fun bind_transform_feedback(target: u32, id: u32) {
     c.glBindTransformFeedback(target, id);
 }
+
 # wraps glDeleteTransformFeedbacks
 pub fun delete_transform_feedbacks(n: i32, ids: *u32) {
     c.glDeleteTransformFeedbacks(n, ids);
 }
+
 # wraps glGenTransformFeedbacks
 pub fun gen_transform_feedbacks(n: i32, ids: *u32) {
     c.glGenTransformFeedbacks(n, ids);
 }
+
 # wraps glIsTransformFeedback
 pub fun is_transform_feedback(id: u32) bool {
     ret c.glIsTransformFeedback(id) != 0;
 }
+
 # wraps glPauseTransformFeedback
 pub fun pause_transform_feedback() {
     c.glPauseTransformFeedback();
 }
+
 # wraps glResumeTransformFeedback
 pub fun resume_transform_feedback() {
     c.glResumeTransformFeedback();
 }
+
 # wraps glDrawTransformFeedback
 pub fun draw_transform_feedback(mode: u32, id: u32) {
     c.glDrawTransformFeedback(mode, id);
 }
+
 # wraps glDrawTransformFeedbackStream
 pub fun draw_transform_feedback_stream(mode: u32, id: u32, stream: u32) {
     c.glDrawTransformFeedbackStream(mode, id, stream);
 }
+
 # wraps glBeginQueryIndexed
 pub fun begin_query_indexed(target: u32, index: u32, id: u32) {
     c.glBeginQueryIndexed(target, index, id);
 }
+
 # wraps glEndQueryIndexed
 pub fun end_query_indexed(target: u32, index: u32) {
     c.glEndQueryIndexed(target, index);
 }
+
 # wraps glGetQueryIndexediv
 pub fun get_query_indexediv(target: u32, index: u32, pname: u32, params: *i32) {
     c.glGetQueryIndexediv(target, index, pname, params);
 }
+
 # wraps glReleaseShaderCompiler
 pub fun release_shader_compiler() {
     c.glReleaseShaderCompiler();
 }
+
 # wraps glShaderBinary
 pub fun shader_binary(count: i32, shaders: *u32, binaryFormat: u32, binary: ptr, length: i32) {
     c.glShaderBinary(count, shaders, binaryFormat, binary, length);
 }
+
 # wraps glGetShaderPrecisionFormat
 pub fun get_shader_precision_format(shadertype: u32, precisiontype: u32, range: *i32, precision: *i32) {
     c.glGetShaderPrecisionFormat(shadertype, precisiontype, range, precision);
 }
+
 # wraps glDepthRangef
 pub fun depth_rangef(n: f32, f: f32) {
     c.glDepthRangef(n, f);
 }
+
 # wraps glClearDepthf
 pub fun clear_depthf(d: f32) {
     c.glClearDepthf(d);
 }
+
 # wraps glGetProgramBinary
 pub fun get_program_binary(program: u32, bufSize: i32, length: *i32, binaryFormat: *u32, binary: ptr) {
     c.glGetProgramBinary(program, bufSize, length, binaryFormat, binary);
 }
+
 # wraps glProgramBinary
 pub fun program_binary(program: u32, binaryFormat: u32, binary: ptr, length: i32) {
     c.glProgramBinary(program, binaryFormat, binary, length);
 }
+
 # wraps glProgramParameteri
 pub fun program_parameteri(program: u32, pname: u32, value: i32) {
     c.glProgramParameteri(program, pname, value);
 }
+
 # wraps glUseProgramStages
 pub fun use_program_stages(pipeline: u32, stages: u32, program: u32) {
     c.glUseProgramStages(pipeline, stages, program);
 }
+
 # wraps glActiveShaderProgram
 pub fun active_shader_program(pipeline: u32, program: u32) {
     c.glActiveShaderProgram(pipeline, program);
 }
+
 # wraps glCreateShaderProgramv
 pub fun create_shader_programv(type: u32, count: i32, strings: **u8) u32 {
     ret c.glCreateShaderProgramv(type, count, strings);
 }
+
 # wraps glBindProgramPipeline
 pub fun bind_program_pipeline(pipeline: u32) {
     c.glBindProgramPipeline(pipeline);
 }
+
 # wraps glDeleteProgramPipelines
 pub fun delete_program_pipelines(n: i32, pipelines: *u32) {
     c.glDeleteProgramPipelines(n, pipelines);
 }
+
 # wraps glGenProgramPipelines
 pub fun gen_program_pipelines(n: i32, pipelines: *u32) {
     c.glGenProgramPipelines(n, pipelines);
 }
+
 # wraps glIsProgramPipeline
 pub fun is_program_pipeline(pipeline: u32) bool {
     ret c.glIsProgramPipeline(pipeline) != 0;
 }
+
 # wraps glGetProgramPipelineiv
 pub fun get_program_pipelineiv(pipeline: u32, pname: u32, params: *i32) {
     c.glGetProgramPipelineiv(pipeline, pname, params);
 }
+
 # wraps glProgramUniform1i
 pub fun program_uniform1i(program: u32, location: i32, v0: i32) {
     c.glProgramUniform1i(program, location, v0);
 }
+
 # wraps glProgramUniform1iv
 pub fun program_uniform1iv(program: u32, location: i32, count: i32, value: *i32) {
     c.glProgramUniform1iv(program, location, count, value);
 }
+
 # wraps glProgramUniform1f
 pub fun program_uniform1f(program: u32, location: i32, v0: f32) {
     c.glProgramUniform1f(program, location, v0);
 }
+
 # wraps glProgramUniform1fv
 pub fun program_uniform1fv(program: u32, location: i32, count: i32, value: *f32) {
     c.glProgramUniform1fv(program, location, count, value);
 }
+
 # wraps glProgramUniform1d
 pub fun program_uniform1d(program: u32, location: i32, v0: f64) {
     c.glProgramUniform1d(program, location, v0);
 }
+
 # wraps glProgramUniform1dv
 pub fun program_uniform1dv(program: u32, location: i32, count: i32, value: *f64) {
     c.glProgramUniform1dv(program, location, count, value);
 }
+
 # wraps glProgramUniform1ui
 pub fun program_uniform1ui(program: u32, location: i32, v0: u32) {
     c.glProgramUniform1ui(program, location, v0);
 }
+
 # wraps glProgramUniform1uiv
 pub fun program_uniform1uiv(program: u32, location: i32, count: i32, value: *u32) {
     c.glProgramUniform1uiv(program, location, count, value);
 }
+
 # wraps glProgramUniform2i
 pub fun program_uniform2i(program: u32, location: i32, v0: i32, v1: i32) {
     c.glProgramUniform2i(program, location, v0, v1);
 }
+
 # wraps glProgramUniform2iv
 pub fun program_uniform2iv(program: u32, location: i32, count: i32, value: *i32) {
     c.glProgramUniform2iv(program, location, count, value);
 }
+
 # wraps glProgramUniform2f
 pub fun program_uniform2f(program: u32, location: i32, v0: f32, v1: f32) {
     c.glProgramUniform2f(program, location, v0, v1);
 }
+
 # wraps glProgramUniform2fv
 pub fun program_uniform2fv(program: u32, location: i32, count: i32, value: *f32) {
     c.glProgramUniform2fv(program, location, count, value);
 }
+
 # wraps glProgramUniform2d
 pub fun program_uniform2d(program: u32, location: i32, v0: f64, v1: f64) {
     c.glProgramUniform2d(program, location, v0, v1);
 }
+
 # wraps glProgramUniform2dv
 pub fun program_uniform2dv(program: u32, location: i32, count: i32, value: *f64) {
     c.glProgramUniform2dv(program, location, count, value);
 }
+
 # wraps glProgramUniform2ui
 pub fun program_uniform2ui(program: u32, location: i32, v0: u32, v1: u32) {
     c.glProgramUniform2ui(program, location, v0, v1);
 }
+
 # wraps glProgramUniform2uiv
 pub fun program_uniform2uiv(program: u32, location: i32, count: i32, value: *u32) {
     c.glProgramUniform2uiv(program, location, count, value);
 }
+
 # wraps glProgramUniform3i
 pub fun program_uniform3i(program: u32, location: i32, v0: i32, v1: i32, v2: i32) {
     c.glProgramUniform3i(program, location, v0, v1, v2);
 }
+
 # wraps glProgramUniform3iv
 pub fun program_uniform3iv(program: u32, location: i32, count: i32, value: *i32) {
     c.glProgramUniform3iv(program, location, count, value);
 }
+
 # wraps glProgramUniform3f
 pub fun program_uniform3f(program: u32, location: i32, v0: f32, v1: f32, v2: f32) {
     c.glProgramUniform3f(program, location, v0, v1, v2);
 }
+
 # wraps glProgramUniform3fv
 pub fun program_uniform3fv(program: u32, location: i32, count: i32, value: *f32) {
     c.glProgramUniform3fv(program, location, count, value);
 }
+
 # wraps glProgramUniform3d
 pub fun program_uniform3d(program: u32, location: i32, v0: f64, v1: f64, v2: f64) {
     c.glProgramUniform3d(program, location, v0, v1, v2);
 }
+
 # wraps glProgramUniform3dv
 pub fun program_uniform3dv(program: u32, location: i32, count: i32, value: *f64) {
     c.glProgramUniform3dv(program, location, count, value);
 }
+
 # wraps glProgramUniform3ui
 pub fun program_uniform3ui(program: u32, location: i32, v0: u32, v1: u32, v2: u32) {
     c.glProgramUniform3ui(program, location, v0, v1, v2);
 }
+
 # wraps glProgramUniform3uiv
 pub fun program_uniform3uiv(program: u32, location: i32, count: i32, value: *u32) {
     c.glProgramUniform3uiv(program, location, count, value);
 }
+
 # wraps glProgramUniform4i
 pub fun program_uniform4i(program: u32, location: i32, v0: i32, v1: i32, v2: i32, v3: i32) {
     c.glProgramUniform4i(program, location, v0, v1, v2, v3);
 }
+
 # wraps glProgramUniform4iv
 pub fun program_uniform4iv(program: u32, location: i32, count: i32, value: *i32) {
     c.glProgramUniform4iv(program, location, count, value);
 }
+
 # wraps glProgramUniform4f
 pub fun program_uniform4f(program: u32, location: i32, v0: f32, v1: f32, v2: f32, v3: f32) {
     c.glProgramUniform4f(program, location, v0, v1, v2, v3);
 }
+
 # wraps glProgramUniform4fv
 pub fun program_uniform4fv(program: u32, location: i32, count: i32, value: *f32) {
     c.glProgramUniform4fv(program, location, count, value);
 }
+
 # wraps glProgramUniform4d
 pub fun program_uniform4d(program: u32, location: i32, v0: f64, v1: f64, v2: f64, v3: f64) {
     c.glProgramUniform4d(program, location, v0, v1, v2, v3);
 }
+
 # wraps glProgramUniform4dv
 pub fun program_uniform4dv(program: u32, location: i32, count: i32, value: *f64) {
     c.glProgramUniform4dv(program, location, count, value);
 }
+
 # wraps glProgramUniform4ui
 pub fun program_uniform4ui(program: u32, location: i32, v0: u32, v1: u32, v2: u32, v3: u32) {
     c.glProgramUniform4ui(program, location, v0, v1, v2, v3);
 }
+
 # wraps glProgramUniform4uiv
 pub fun program_uniform4uiv(program: u32, location: i32, count: i32, value: *u32) {
     c.glProgramUniform4uiv(program, location, count, value);
 }
+
 # wraps glProgramUniformMatrix2fv
 pub fun program_uniform_matrix2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix2fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3fv
 pub fun program_uniform_matrix3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix3fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4fv
 pub fun program_uniform_matrix4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix4fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix2dv
 pub fun program_uniform_matrix2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix2dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3dv
 pub fun program_uniform_matrix3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix3dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4dv
 pub fun program_uniform_matrix4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix4dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix2x3fv
 pub fun program_uniform_matrix2x3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix2x3fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3x2fv
 pub fun program_uniform_matrix3x2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix3x2fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix2x4fv
 pub fun program_uniform_matrix2x4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix2x4fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4x2fv
 pub fun program_uniform_matrix4x2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix4x2fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3x4fv
 pub fun program_uniform_matrix3x4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix3x4fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4x3fv
 pub fun program_uniform_matrix4x3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
     c.glProgramUniformMatrix4x3fv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix2x3dv
 pub fun program_uniform_matrix2x3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix2x3dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3x2dv
 pub fun program_uniform_matrix3x2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix3x2dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix2x4dv
 pub fun program_uniform_matrix2x4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix2x4dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4x2dv
 pub fun program_uniform_matrix4x2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix4x2dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix3x4dv
 pub fun program_uniform_matrix3x4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix3x4dv(program, location, count, transpose, value);
 }
+
 # wraps glProgramUniformMatrix4x3dv
 pub fun program_uniform_matrix4x3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
     c.glProgramUniformMatrix4x3dv(program, location, count, transpose, value);
 }
+
 # wraps glValidateProgramPipeline
 pub fun validate_program_pipeline(pipeline: u32) {
     c.glValidateProgramPipeline(pipeline);
 }
+
 # wraps glGetProgramPipelineInfoLog
 pub fun get_program_pipeline_info_log(pipeline: u32, bufSize: i32, length: *i32, infoLog: *u8) {
     c.glGetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog);
 }
+
 # wraps glVertexAttribL1d
 pub fun vertex_attrib_l1d(index: u32, x: f64) {
     c.glVertexAttribL1d(index, x);
 }
+
 # wraps glVertexAttribL2d
 pub fun vertex_attrib_l2d(index: u32, x: f64, y: f64) {
     c.glVertexAttribL2d(index, x, y);
 }
+
 # wraps glVertexAttribL3d
 pub fun vertex_attrib_l3d(index: u32, x: f64, y: f64, z: f64) {
     c.glVertexAttribL3d(index, x, y, z);
 }
+
 # wraps glVertexAttribL4d
 pub fun vertex_attrib_l4d(index: u32, x: f64, y: f64, z: f64, w: f64) {
     c.glVertexAttribL4d(index, x, y, z, w);
 }
+
 # wraps glVertexAttribL1dv
 pub fun vertex_attrib_l1dv(index: u32, v: *f64) {
     c.glVertexAttribL1dv(index, v);
 }
+
 # wraps glVertexAttribL2dv
 pub fun vertex_attrib_l2dv(index: u32, v: *f64) {
     c.glVertexAttribL2dv(index, v);
 }
+
 # wraps glVertexAttribL3dv
 pub fun vertex_attrib_l3dv(index: u32, v: *f64) {
     c.glVertexAttribL3dv(index, v);
 }
+
 # wraps glVertexAttribL4dv
 pub fun vertex_attrib_l4dv(index: u32, v: *f64) {
     c.glVertexAttribL4dv(index, v);
 }
+
 # wraps glVertexAttribLPointer
 pub fun vertex_attrib_lpointer(index: u32, size: i32, type: u32, stride: i32, pointer: ptr) {
     c.glVertexAttribLPointer(index, size, type, stride, pointer);
 }
+
 # wraps glGetVertexAttribLdv
 pub fun get_vertex_attrib_ldv(index: u32, pname: u32, params: *f64) {
     c.glGetVertexAttribLdv(index, pname, params);
 }
+
 # wraps glViewportArrayv
 pub fun viewport_arrayv(first: u32, count: i32, v: *f32) {
     c.glViewportArrayv(first, count, v);
 }
+
 # wraps glViewportIndexedf
 pub fun viewport_indexedf(index: u32, x: f32, y: f32, w: f32, h: f32) {
     c.glViewportIndexedf(index, x, y, w, h);
 }
+
 # wraps glViewportIndexedfv
 pub fun viewport_indexedfv(index: u32, v: *f32) {
     c.glViewportIndexedfv(index, v);
 }
+
 # wraps glScissorArrayv
 pub fun scissor_arrayv(first: u32, count: i32, v: *i32) {
     c.glScissorArrayv(first, count, v);
 }
+
 # wraps glScissorIndexed
 pub fun scissor_indexed(index: u32, left: i32, bottom: i32, width: i32, height: i32) {
     c.glScissorIndexed(index, left, bottom, width, height);
 }
+
 # wraps glScissorIndexedv
 pub fun scissor_indexedv(index: u32, v: *i32) {
     c.glScissorIndexedv(index, v);
 }
+
 # wraps glDepthRangeArrayv
 pub fun depth_range_arrayv(first: u32, count: i32, v: *f64) {
     c.glDepthRangeArrayv(first, count, v);
 }
+
 # wraps glDepthRangeIndexed
 pub fun depth_range_indexed(index: u32, n: f64, f: f64) {
     c.glDepthRangeIndexed(index, n, f);
 }
+
 # wraps glGetFloati_v
 pub fun get_floati_v(target: u32, index: u32, data: *f32) {
     c.glGetFloati_v(target, index, data);
 }
+
 # wraps glGetDoublei_v
 pub fun get_doublei_v(target: u32, index: u32, data: *f64) {
     c.glGetDoublei_v(target, index, data);
 }
+
 # wraps glDrawArraysInstancedBaseInstance
 pub fun draw_arrays_instanced_base_instance(mode: u32, first: i32, count: i32, instancecount: i32, baseinstance: u32) {
     c.glDrawArraysInstancedBaseInstance(mode, first, count, instancecount, baseinstance);
 }
+
 # wraps glDrawElementsInstancedBaseInstance
 pub fun draw_elements_instanced_base_instance(mode: u32, count: i32, type: u32, indices: ptr, instancecount: i32, baseinstance: u32) {
     c.glDrawElementsInstancedBaseInstance(mode, count, type, indices, instancecount, baseinstance);
 }
+
 # wraps glDrawElementsInstancedBaseVertexBaseInstance
 pub fun draw_elements_instanced_base_vertex_base_instance(mode: u32, count: i32, type: u32, indices: ptr, instancecount: i32, basevertex: i32, baseinstance: u32) {
     c.glDrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, instancecount, basevertex, baseinstance);
 }
+
 # wraps glGetInternalformativ
 pub fun get_internalformativ(target: u32, internalformat: u32, pname: u32, count: i32, params: *i32) {
     c.glGetInternalformativ(target, internalformat, pname, count, params);
 }
+
 # wraps glGetActiveAtomicCounterBufferiv
 pub fun get_active_atomic_counter_bufferiv(program: u32, bufferIndex: u32, pname: u32, params: *i32) {
     c.glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params);
 }
+
 # wraps glBindImageTexture
 pub fun bind_image_texture(unit: u32, texture: u32, level: i32, layered: bool, layer: i32, access: u32, format: u32) {
     c.glBindImageTexture(unit, texture, level, layered, layer, access, format);
 }
+
 # wraps glMemoryBarrier
 pub fun memory_barrier(barriers: u32) {
     c.glMemoryBarrier(barriers);
 }
+
 # wraps glTexStorage1D
 pub fun tex_storage1d(target: u32, levels: i32, internalformat: u32, width: i32) {
     c.glTexStorage1D(target, levels, internalformat, width);
 }
+
 # wraps glTexStorage2D
 pub fun tex_storage2d(target: u32, levels: i32, internalformat: u32, width: i32, height: i32) {
     c.glTexStorage2D(target, levels, internalformat, width, height);
 }
+
 # wraps glTexStorage3D
 pub fun tex_storage3d(target: u32, levels: i32, internalformat: u32, width: i32, height: i32, depth: i32) {
     c.glTexStorage3D(target, levels, internalformat, width, height, depth);
 }
+
 # wraps glDrawTransformFeedbackInstanced
 pub fun draw_transform_feedback_instanced(mode: u32, id: u32, instancecount: i32) {
     c.glDrawTransformFeedbackInstanced(mode, id, instancecount);
 }
+
 # wraps glDrawTransformFeedbackStreamInstanced
 pub fun draw_transform_feedback_stream_instanced(mode: u32, id: u32, stream: u32, instancecount: i32) {
     c.glDrawTransformFeedbackStreamInstanced(mode, id, stream, instancecount);
 }
+
 # wraps glClearBufferData
 pub fun clear_buffer_data(target: u32, internalformat: u32, format: u32, type: u32, data: ptr) {
     c.glClearBufferData(target, internalformat, format, type, data);
 }
+
 # wraps glClearBufferSubData
 pub fun clear_buffer_sub_data(target: u32, internalformat: u32, offset: i64, size: i64, format: u32, type: u32, data: ptr) {
     c.glClearBufferSubData(target, internalformat, offset, size, format, type, data);
 }
+
 # wraps glDispatchCompute
 pub fun dispatch_compute(num_groups_x: u32, num_groups_y: u32, num_groups_z: u32) {
     c.glDispatchCompute(num_groups_x, num_groups_y, num_groups_z);
 }
+
 # wraps glDispatchComputeIndirect
 pub fun dispatch_compute_indirect(indirect: i64) {
     c.glDispatchComputeIndirect(indirect);
 }
+
 # wraps glCopyImageSubData
 pub fun copy_image_sub_data(srcName: u32, srcTarget: u32, srcLevel: i32, srcX: i32, srcY: i32, srcZ: i32, dstName: u32, dstTarget: u32, dstLevel: i32, dstX: i32, dstY: i32, dstZ: i32, srcWidth: i32, srcHeight: i32, srcDepth: i32) {
     c.glCopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 }
+
 # wraps glFramebufferParameteri
 pub fun framebuffer_parameteri(target: u32, pname: u32, param: i32) {
     c.glFramebufferParameteri(target, pname, param);
 }
+
 # wraps glGetFramebufferParameteriv
 pub fun get_framebuffer_parameteriv(target: u32, pname: u32, params: *i32) {
     c.glGetFramebufferParameteriv(target, pname, params);
 }
+
 # wraps glGetInternalformati64v
 pub fun get_internalformati64v(target: u32, internalformat: u32, pname: u32, count: i32, params: *i64) {
     c.glGetInternalformati64v(target, internalformat, pname, count, params);
 }
+
 # wraps glInvalidateTexSubImage
 pub fun invalidate_tex_sub_image(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32) {
     c.glInvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth);
 }
+
 # wraps glInvalidateTexImage
 pub fun invalidate_tex_image(texture: u32, level: i32) {
     c.glInvalidateTexImage(texture, level);
 }
+
 # wraps glInvalidateBufferSubData
 pub fun invalidate_buffer_sub_data(buffer: u32, offset: i64, length: i64) {
     c.glInvalidateBufferSubData(buffer, offset, length);
 }
+
 # wraps glInvalidateBufferData
 pub fun invalidate_buffer_data(buffer: u32) {
     c.glInvalidateBufferData(buffer);
 }
+
 # wraps glInvalidateFramebuffer
 pub fun invalidate_framebuffer(target: u32, numAttachments: i32, attachments: *u32) {
     c.glInvalidateFramebuffer(target, numAttachments, attachments);
 }
+
 # wraps glInvalidateSubFramebuffer
 pub fun invalidate_sub_framebuffer(target: u32, numAttachments: i32, attachments: *u32, x: i32, y: i32, width: i32, height: i32) {
     c.glInvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height);
 }
+
 # wraps glMultiDrawArraysIndirect
 pub fun multi_draw_arrays_indirect(mode: u32, indirect: ptr, drawcount: i32, stride: i32) {
     c.glMultiDrawArraysIndirect(mode, indirect, drawcount, stride);
 }
+
 # wraps glMultiDrawElementsIndirect
 pub fun multi_draw_elements_indirect(mode: u32, type: u32, indirect: ptr, drawcount: i32, stride: i32) {
     c.glMultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
 }
+
 # wraps glGetProgramInterfaceiv
 pub fun get_program_interfaceiv(program: u32, programInterface: u32, pname: u32, params: *i32) {
     c.glGetProgramInterfaceiv(program, programInterface, pname, params);
 }
+
 # wraps glGetProgramResourceIndex
 pub fun get_program_resource_index(program: u32, programInterface: u32, name: str) u32 {
     ret c.glGetProgramResourceIndex(program, programInterface, name);
 }
+
 # wraps glGetProgramResourceName
 pub fun get_program_resource_name(program: u32, programInterface: u32, index: u32, bufSize: i32, length: *i32, name: *u8) {
     c.glGetProgramResourceName(program, programInterface, index, bufSize, length, name);
 }
+
 # wraps glGetProgramResourceiv
 pub fun get_program_resourceiv(program: u32, programInterface: u32, index: u32, propCount: i32, props: *u32, count: i32, length: *i32, params: *i32) {
     c.glGetProgramResourceiv(program, programInterface, index, propCount, props, count, length, params);
 }
+
 # wraps glGetProgramResourceLocation
 pub fun get_program_resource_location(program: u32, programInterface: u32, name: str) i32 {
     ret c.glGetProgramResourceLocation(program, programInterface, name);
 }
+
 # wraps glGetProgramResourceLocationIndex
 pub fun get_program_resource_location_index(program: u32, programInterface: u32, name: str) i32 {
     ret c.glGetProgramResourceLocationIndex(program, programInterface, name);
 }
+
 # wraps glShaderStorageBlockBinding
 pub fun shader_storage_block_binding(program: u32, storageBlockIndex: u32, storageBlockBinding: u32) {
     c.glShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
 }
+
 # wraps glTexBufferRange
 pub fun tex_buffer_range(target: u32, internalformat: u32, buffer: u32, offset: i64, size: i64) {
     c.glTexBufferRange(target, internalformat, buffer, offset, size);
 }
+
 # wraps glTexStorage2DMultisample
 pub fun tex_storage2dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
     c.glTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
 }
+
 # wraps glTexStorage3DMultisample
 pub fun tex_storage3dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
     c.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
 }
+
 # wraps glTextureView
 pub fun texture_view(texture: u32, target: u32, origtexture: u32, internalformat: u32, minlevel: u32, numlevels: u32, minlayer: u32, numlayers: u32) {
     c.glTextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
 }
+
 # wraps glBindVertexBuffer
 pub fun bind_vertex_buffer(bindingindex: u32, buffer: u32, offset: i64, stride: i32) {
     c.glBindVertexBuffer(bindingindex, buffer, offset, stride);
 }
+
 # wraps glVertexAttribFormat
 pub fun vertex_attrib_format(attribindex: u32, size: i32, type: u32, normalized: bool, relativeoffset: u32) {
     c.glVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
 }
+
 # wraps glVertexAttribIFormat
 pub fun vertex_attrib_iformat(attribindex: u32, size: i32, type: u32, relativeoffset: u32) {
     c.glVertexAttribIFormat(attribindex, size, type, relativeoffset);
 }
+
 # wraps glVertexAttribLFormat
 pub fun vertex_attrib_lformat(attribindex: u32, size: i32, type: u32, relativeoffset: u32) {
     c.glVertexAttribLFormat(attribindex, size, type, relativeoffset);
 }
+
 # wraps glVertexAttribBinding
 pub fun vertex_attrib_binding(attribindex: u32, bindingindex: u32) {
     c.glVertexAttribBinding(attribindex, bindingindex);
 }
+
 # wraps glVertexBindingDivisor
 pub fun vertex_binding_divisor(bindingindex: u32, divisor: u32) {
     c.glVertexBindingDivisor(bindingindex, divisor);
 }
+
 # wraps glDebugMessageControl
 pub fun debug_message_control(source: u32, type: u32, severity: u32, count: i32, ids: *u32, enabled: bool) {
     c.glDebugMessageControl(source, type, severity, count, ids, enabled);
 }
+
 # wraps glDebugMessageInsert
 pub fun debug_message_insert(source: u32, type: u32, id: u32, severity: u32, length: i32, buf: str) {
     c.glDebugMessageInsert(source, type, id, severity, length, buf);
 }
+
 # wraps glDebugMessageCallback
 pub fun debug_message_callback(callback: fun(u32, u32, u32, u32, i32, *u8, ptr), userParam: ptr) {
     c.glDebugMessageCallback(callback, userParam);
 }
+
 # wraps glGetDebugMessageLog
 pub fun get_debug_message_log(count: u32, bufSize: i32, sources: *u32, types: *u32, ids: *u32, severities: *u32, lengths: *i32, messageLog: *u8) u32 {
     ret c.glGetDebugMessageLog(count, bufSize, sources, types, ids, severities, lengths, messageLog);
 }
+
 # wraps glPushDebugGroup
 pub fun push_debug_group(source: u32, id: u32, length: i32, message: str) {
     c.glPushDebugGroup(source, id, length, message);
 }
+
 # wraps glPopDebugGroup
 pub fun pop_debug_group() {
     c.glPopDebugGroup();
 }
+
 # wraps glObjectLabel
 pub fun object_label(identifier: u32, name: u32, length: i32, label: str) {
     c.glObjectLabel(identifier, name, length, label);
 }
+
 # wraps glGetObjectLabel
 pub fun get_object_label(identifier: u32, name: u32, bufSize: i32, length: *i32, label: *u8) {
     c.glGetObjectLabel(identifier, name, bufSize, length, label);
 }
+
 # wraps glObjectPtrLabel
 pub fun object_ptr_label(ptr: ptr, length: i32, label: str) {
     c.glObjectPtrLabel(ptr, length, label);
 }
+
 # wraps glGetObjectPtrLabel
 pub fun get_object_ptr_label(ptr: ptr, bufSize: i32, length: *i32, label: *u8) {
     c.glGetObjectPtrLabel(ptr, bufSize, length, label);
 }
+
 # wraps glGetPointerv
 pub fun get_pointerv(pname: u32, params: *ptr) {
     c.glGetPointerv(pname, params);
 }
+
 # wraps glBufferStorage
 pub fun buffer_storage(target: u32, size: i64, data: ptr, flags: u32) {
     c.glBufferStorage(target, size, data, flags);
 }
+
 # wraps glClearTexImage
 pub fun clear_tex_image(texture: u32, level: i32, format: u32, type: u32, data: ptr) {
     c.glClearTexImage(texture, level, format, type, data);
 }
+
 # wraps glClearTexSubImage
 pub fun clear_tex_sub_image(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, type: u32, data: ptr) {
     c.glClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
 }
+
 # wraps glBindBuffersBase
 pub fun bind_buffers_base(target: u32, first: u32, count: i32, buffers: *u32) {
     c.glBindBuffersBase(target, first, count, buffers);
 }
+
 # wraps glBindBuffersRange
 pub fun bind_buffers_range(target: u32, first: u32, count: i32, buffers: *u32, offsets: *i64, sizes: *i64) {
     c.glBindBuffersRange(target, first, count, buffers, offsets, sizes);
 }
+
 # wraps glBindTextures
 pub fun bind_textures(first: u32, count: i32, textures: *u32) {
     c.glBindTextures(first, count, textures);
 }
+
 # wraps glBindSamplers
 pub fun bind_samplers(first: u32, count: i32, samplers: *u32) {
     c.glBindSamplers(first, count, samplers);
 }
+
 # wraps glBindImageTextures
 pub fun bind_image_textures(first: u32, count: i32, textures: *u32) {
     c.glBindImageTextures(first, count, textures);
 }
+
 # wraps glBindVertexBuffers
 pub fun bind_vertex_buffers(first: u32, count: i32, buffers: *u32, offsets: *i64, strides: *i32) {
     c.glBindVertexBuffers(first, count, buffers, offsets, strides);
 }
+
 # wraps glClipControl
 pub fun clip_control(origin: u32, depth: u32) {
     c.glClipControl(origin, depth);
 }
+
 # wraps glCreateTransformFeedbacks
 pub fun create_transform_feedbacks(n: i32, ids: *u32) {
     c.glCreateTransformFeedbacks(n, ids);
 }
+
 # wraps glTransformFeedbackBufferBase
 pub fun transform_feedback_buffer_base(xfb: u32, index: u32, buffer: u32) {
     c.glTransformFeedbackBufferBase(xfb, index, buffer);
 }
+
 # wraps glTransformFeedbackBufferRange
 pub fun transform_feedback_buffer_range(xfb: u32, index: u32, buffer: u32, offset: i64, size: i64) {
     c.glTransformFeedbackBufferRange(xfb, index, buffer, offset, size);
 }
+
 # wraps glGetTransformFeedbackiv
 pub fun get_transform_feedbackiv(xfb: u32, pname: u32, param: *i32) {
     c.glGetTransformFeedbackiv(xfb, pname, param);
 }
+
 # wraps glGetTransformFeedbacki_v
 pub fun get_transform_feedbacki_v(xfb: u32, pname: u32, index: u32, param: *i32) {
     c.glGetTransformFeedbacki_v(xfb, pname, index, param);
 }
+
 # wraps glGetTransformFeedbacki64_v
 pub fun get_transform_feedbacki64_v(xfb: u32, pname: u32, index: u32, param: *i64) {
     c.glGetTransformFeedbacki64_v(xfb, pname, index, param);
 }
+
 # wraps glCreateBuffers
 pub fun create_buffers(n: i32, buffers: *u32) {
     c.glCreateBuffers(n, buffers);
 }
+
 # wraps glNamedBufferStorage
 pub fun named_buffer_storage(buffer: u32, size: i64, data: ptr, flags: u32) {
     c.glNamedBufferStorage(buffer, size, data, flags);
 }
+
 # wraps glNamedBufferData
 pub fun named_buffer_data(buffer: u32, size: i64, data: ptr, usage: u32) {
     c.glNamedBufferData(buffer, size, data, usage);
 }
+
 # wraps glNamedBufferSubData
 pub fun named_buffer_sub_data(buffer: u32, offset: i64, size: i64, data: ptr) {
     c.glNamedBufferSubData(buffer, offset, size, data);
 }
+
 # wraps glCopyNamedBufferSubData
 pub fun copy_named_buffer_sub_data(readBuffer: u32, writeBuffer: u32, readOffset: i64, writeOffset: i64, size: i64) {
     c.glCopyNamedBufferSubData(readBuffer, writeBuffer, readOffset, writeOffset, size);
 }
+
 # wraps glClearNamedBufferData
 pub fun clear_named_buffer_data(buffer: u32, internalformat: u32, format: u32, type: u32, data: ptr) {
     c.glClearNamedBufferData(buffer, internalformat, format, type, data);
 }
+
 # wraps glClearNamedBufferSubData
 pub fun clear_named_buffer_sub_data(buffer: u32, internalformat: u32, offset: i64, size: i64, format: u32, type: u32, data: ptr) {
     c.glClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, data);
 }
+
 # wraps glMapNamedBuffer
 pub fun map_named_buffer(buffer: u32, access: u32) ptr {
     ret c.glMapNamedBuffer(buffer, access);
 }
+
 # wraps glMapNamedBufferRange
 pub fun map_named_buffer_range(buffer: u32, offset: i64, length: i64, access: u32) ptr {
     ret c.glMapNamedBufferRange(buffer, offset, length, access);
 }
+
 # wraps glUnmapNamedBuffer
 pub fun unmap_named_buffer(buffer: u32) bool {
     ret c.glUnmapNamedBuffer(buffer) != 0;
 }
+
 # wraps glFlushMappedNamedBufferRange
 pub fun flush_mapped_named_buffer_range(buffer: u32, offset: i64, length: i64) {
     c.glFlushMappedNamedBufferRange(buffer, offset, length);
 }
+
 # wraps glGetNamedBufferParameteriv
 pub fun get_named_buffer_parameteriv(buffer: u32, pname: u32, params: *i32) {
     c.glGetNamedBufferParameteriv(buffer, pname, params);
 }
+
 # wraps glGetNamedBufferParameteri64v
 pub fun get_named_buffer_parameteri64v(buffer: u32, pname: u32, params: *i64) {
     c.glGetNamedBufferParameteri64v(buffer, pname, params);
 }
+
 # wraps glGetNamedBufferPointerv
 pub fun get_named_buffer_pointerv(buffer: u32, pname: u32, params: *ptr) {
     c.glGetNamedBufferPointerv(buffer, pname, params);
 }
+
 # wraps glGetNamedBufferSubData
 pub fun get_named_buffer_sub_data(buffer: u32, offset: i64, size: i64, data: ptr) {
     c.glGetNamedBufferSubData(buffer, offset, size, data);
 }
+
 # wraps glCreateFramebuffers
 pub fun create_framebuffers(n: i32, framebuffers: *u32) {
     c.glCreateFramebuffers(n, framebuffers);
 }
+
 # wraps glNamedFramebufferRenderbuffer
 pub fun named_framebuffer_renderbuffer(framebuffer: u32, attachment: u32, renderbuffertarget: u32, renderbuffer: u32) {
     c.glNamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
 }
+
 # wraps glNamedFramebufferParameteri
 pub fun named_framebuffer_parameteri(framebuffer: u32, pname: u32, param: i32) {
     c.glNamedFramebufferParameteri(framebuffer, pname, param);
 }
+
 # wraps glNamedFramebufferTexture
 pub fun named_framebuffer_texture(framebuffer: u32, attachment: u32, texture: u32, level: i32) {
     c.glNamedFramebufferTexture(framebuffer, attachment, texture, level);
 }
+
 # wraps glNamedFramebufferTextureLayer
 pub fun named_framebuffer_texture_layer(framebuffer: u32, attachment: u32, texture: u32, level: i32, layer: i32) {
     c.glNamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
 }
+
 # wraps glNamedFramebufferDrawBuffer
 pub fun named_framebuffer_draw_buffer(framebuffer: u32, buf: u32) {
     c.glNamedFramebufferDrawBuffer(framebuffer, buf);
 }
+
 # wraps glNamedFramebufferDrawBuffers
 pub fun named_framebuffer_draw_buffers(framebuffer: u32, n: i32, bufs: *u32) {
     c.glNamedFramebufferDrawBuffers(framebuffer, n, bufs);
 }
+
 # wraps glNamedFramebufferReadBuffer
 pub fun named_framebuffer_read_buffer(framebuffer: u32, src: u32) {
     c.glNamedFramebufferReadBuffer(framebuffer, src);
 }
+
 # wraps glInvalidateNamedFramebufferData
 pub fun invalidate_named_framebuffer_data(framebuffer: u32, numAttachments: i32, attachments: *u32) {
     c.glInvalidateNamedFramebufferData(framebuffer, numAttachments, attachments);
 }
+
 # wraps glInvalidateNamedFramebufferSubData
 pub fun invalidate_named_framebuffer_sub_data(framebuffer: u32, numAttachments: i32, attachments: *u32, x: i32, y: i32, width: i32, height: i32) {
     c.glInvalidateNamedFramebufferSubData(framebuffer, numAttachments, attachments, x, y, width, height);
 }
+
 # wraps glClearNamedFramebufferiv
 pub fun clear_named_framebufferiv(framebuffer: u32, buffer: u32, drawbuffer: i32, value: *i32) {
     c.glClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, value);
 }
+
 # wraps glClearNamedFramebufferuiv
 pub fun clear_named_framebufferuiv(framebuffer: u32, buffer: u32, drawbuffer: i32, value: *u32) {
     c.glClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, value);
 }
+
 # wraps glClearNamedFramebufferfv
 pub fun clear_named_framebufferfv(framebuffer: u32, buffer: u32, drawbuffer: i32, value: *f32) {
     c.glClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value);
 }
+
 # wraps glClearNamedFramebufferfi
 pub fun clear_named_framebufferfi(framebuffer: u32, buffer: u32, drawbuffer: i32, depth: f32, stencil: i32) {
     c.glClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
 }
+
 # wraps glBlitNamedFramebuffer
 pub fun blit_named_framebuffer(readFramebuffer: u32, drawFramebuffer: u32, srcX0: i32, srcY0: i32, srcX1: i32, srcY1: i32, dstX0: i32, dstY0: i32, dstX1: i32, dstY1: i32, mask: u32, filter: u32) {
     c.glBlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 }
+
 # wraps glCheckNamedFramebufferStatus
 pub fun check_named_framebuffer_status(framebuffer: u32, target: u32) u32 {
     ret c.glCheckNamedFramebufferStatus(framebuffer, target);
 }
+
 # wraps glGetNamedFramebufferParameteriv
 pub fun get_named_framebuffer_parameteriv(framebuffer: u32, pname: u32, param: *i32) {
     c.glGetNamedFramebufferParameteriv(framebuffer, pname, param);
 }
+
 # wraps glGetNamedFramebufferAttachmentParameteriv
 pub fun get_named_framebuffer_attachment_parameteriv(framebuffer: u32, attachment: u32, pname: u32, params: *i32) {
     c.glGetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, params);
 }
+
 # wraps glCreateRenderbuffers
 pub fun create_renderbuffers(n: i32, renderbuffers: *u32) {
     c.glCreateRenderbuffers(n, renderbuffers);
 }
+
 # wraps glNamedRenderbufferStorage
 pub fun named_renderbuffer_storage(renderbuffer: u32, internalformat: u32, width: i32, height: i32) {
     c.glNamedRenderbufferStorage(renderbuffer, internalformat, width, height);
 }
+
 # wraps glNamedRenderbufferStorageMultisample
 pub fun named_renderbuffer_storage_multisample(renderbuffer: u32, samples: i32, internalformat: u32, width: i32, height: i32) {
     c.glNamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
 }
+
 # wraps glGetNamedRenderbufferParameteriv
 pub fun get_named_renderbuffer_parameteriv(renderbuffer: u32, pname: u32, params: *i32) {
     c.glGetNamedRenderbufferParameteriv(renderbuffer, pname, params);
 }
+
 # wraps glCreateTextures
 pub fun create_textures(target: u32, n: i32, textures: *u32) {
     c.glCreateTextures(target, n, textures);
 }
+
 # wraps glTextureBuffer
 pub fun texture_buffer(texture: u32, internalformat: u32, buffer: u32) {
     c.glTextureBuffer(texture, internalformat, buffer);
 }
+
 # wraps glTextureBufferRange
 pub fun texture_buffer_range(texture: u32, internalformat: u32, buffer: u32, offset: i64, size: i64) {
     c.glTextureBufferRange(texture, internalformat, buffer, offset, size);
 }
+
 # wraps glTextureStorage1D
 pub fun texture_storage1d(texture: u32, levels: i32, internalformat: u32, width: i32) {
     c.glTextureStorage1D(texture, levels, internalformat, width);
 }
+
 # wraps glTextureStorage2D
 pub fun texture_storage2d(texture: u32, levels: i32, internalformat: u32, width: i32, height: i32) {
     c.glTextureStorage2D(texture, levels, internalformat, width, height);
 }
+
 # wraps glTextureStorage3D
 pub fun texture_storage3d(texture: u32, levels: i32, internalformat: u32, width: i32, height: i32, depth: i32) {
     c.glTextureStorage3D(texture, levels, internalformat, width, height, depth);
 }
+
 # wraps glTextureStorage2DMultisample
 pub fun texture_storage2dmultisample(texture: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
     c.glTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
 }
+
 # wraps glTextureStorage3DMultisample
 pub fun texture_storage3dmultisample(texture: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
     c.glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
 }
+
 # wraps glTextureSubImage1D
 pub fun texture_sub_image1d(texture: u32, level: i32, xoffset: i32, width: i32, format: u32, type: u32, pixels: ptr) {
     c.glTextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
 }
+
 # wraps glTextureSubImage2D
 pub fun texture_sub_image2d(texture: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, type: u32, pixels: ptr) {
     c.glTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
 }
+
 # wraps glTextureSubImage3D
 pub fun texture_sub_image3d(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, type: u32, pixels: ptr) {
     c.glTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 }
+
 # wraps glCompressedTextureSubImage1D
 pub fun compressed_texture_sub_image1d(texture: u32, level: i32, xoffset: i32, width: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
 }
+
 # wraps glCompressedTextureSubImage2D
 pub fun compressed_texture_sub_image2d(texture: u32, level: i32, xoffset: i32, yoffset: i32, width: i32, height: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
 }
+
 # wraps glCompressedTextureSubImage3D
 pub fun compressed_texture_sub_image3d(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, imageSize: i32, data: ptr) {
     c.glCompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 }
+
 # wraps glCopyTextureSubImage1D
 pub fun copy_texture_sub_image1d(texture: u32, level: i32, xoffset: i32, x: i32, y: i32, width: i32) {
     c.glCopyTextureSubImage1D(texture, level, xoffset, x, y, width);
 }
+
 # wraps glCopyTextureSubImage2D
 pub fun copy_texture_sub_image2d(texture: u32, level: i32, xoffset: i32, yoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     c.glCopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
 }
+
 # wraps glCopyTextureSubImage3D
 pub fun copy_texture_sub_image3d(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, x: i32, y: i32, width: i32, height: i32) {
     c.glCopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height);
 }
+
 # wraps glTextureParameterf
 pub fun texture_parameterf(texture: u32, pname: u32, param: f32) {
     c.glTextureParameterf(texture, pname, param);
 }
+
 # wraps glTextureParameterfv
 pub fun texture_parameterfv(texture: u32, pname: u32, param: *f32) {
     c.glTextureParameterfv(texture, pname, param);
 }
+
 # wraps glTextureParameteri
 pub fun texture_parameteri(texture: u32, pname: u32, param: i32) {
     c.glTextureParameteri(texture, pname, param);
 }
+
 # wraps glTextureParameterIiv
 pub fun texture_parameter_iiv(texture: u32, pname: u32, params: *i32) {
     c.glTextureParameterIiv(texture, pname, params);
 }
+
 # wraps glTextureParameterIuiv
 pub fun texture_parameter_iuiv(texture: u32, pname: u32, params: *u32) {
     c.glTextureParameterIuiv(texture, pname, params);
 }
+
 # wraps glTextureParameteriv
 pub fun texture_parameteriv(texture: u32, pname: u32, param: *i32) {
     c.glTextureParameteriv(texture, pname, param);
 }
+
 # wraps glGenerateTextureMipmap
 pub fun generate_texture_mipmap(texture: u32) {
     c.glGenerateTextureMipmap(texture);
 }
+
 # wraps glBindTextureUnit
 pub fun bind_texture_unit(unit: u32, texture: u32) {
     c.glBindTextureUnit(unit, texture);
 }
+
 # wraps glGetTextureImage
 pub fun get_texture_image(texture: u32, level: i32, format: u32, type: u32, bufSize: i32, pixels: ptr) {
     c.glGetTextureImage(texture, level, format, type, bufSize, pixels);
 }
+
 # wraps glGetCompressedTextureImage
 pub fun get_compressed_texture_image(texture: u32, level: i32, bufSize: i32, pixels: ptr) {
     c.glGetCompressedTextureImage(texture, level, bufSize, pixels);
 }
+
 # wraps glGetTextureLevelParameterfv
 pub fun get_texture_level_parameterfv(texture: u32, level: i32, pname: u32, params: *f32) {
     c.glGetTextureLevelParameterfv(texture, level, pname, params);
 }
+
 # wraps glGetTextureLevelParameteriv
 pub fun get_texture_level_parameteriv(texture: u32, level: i32, pname: u32, params: *i32) {
     c.glGetTextureLevelParameteriv(texture, level, pname, params);
 }
+
 # wraps glGetTextureParameterfv
 pub fun get_texture_parameterfv(texture: u32, pname: u32, params: *f32) {
     c.glGetTextureParameterfv(texture, pname, params);
 }
+
 # wraps glGetTextureParameterIiv
 pub fun get_texture_parameter_iiv(texture: u32, pname: u32, params: *i32) {
     c.glGetTextureParameterIiv(texture, pname, params);
 }
+
 # wraps glGetTextureParameterIuiv
 pub fun get_texture_parameter_iuiv(texture: u32, pname: u32, params: *u32) {
     c.glGetTextureParameterIuiv(texture, pname, params);
 }
+
 # wraps glGetTextureParameteriv
 pub fun get_texture_parameteriv(texture: u32, pname: u32, params: *i32) {
     c.glGetTextureParameteriv(texture, pname, params);
 }
+
 # wraps glCreateVertexArrays
 pub fun create_vertex_arrays(n: i32, arrays: *u32) {
     c.glCreateVertexArrays(n, arrays);
 }
+
 # wraps glDisableVertexArrayAttrib
 pub fun disable_vertex_array_attrib(vaobj: u32, index: u32) {
     c.glDisableVertexArrayAttrib(vaobj, index);
 }
+
 # wraps glEnableVertexArrayAttrib
 pub fun enable_vertex_array_attrib(vaobj: u32, index: u32) {
     c.glEnableVertexArrayAttrib(vaobj, index);
 }
+
 # wraps glVertexArrayElementBuffer
 pub fun vertex_array_element_buffer(vaobj: u32, buffer: u32) {
     c.glVertexArrayElementBuffer(vaobj, buffer);
 }
+
 # wraps glVertexArrayVertexBuffer
 pub fun vertex_array_vertex_buffer(vaobj: u32, bindingindex: u32, buffer: u32, offset: i64, stride: i32) {
     c.glVertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride);
 }
+
 # wraps glVertexArrayVertexBuffers
 pub fun vertex_array_vertex_buffers(vaobj: u32, first: u32, count: i32, buffers: *u32, offsets: *i64, strides: *i32) {
     c.glVertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides);
 }
+
 # wraps glVertexArrayAttribBinding
 pub fun vertex_array_attrib_binding(vaobj: u32, attribindex: u32, bindingindex: u32) {
     c.glVertexArrayAttribBinding(vaobj, attribindex, bindingindex);
 }
+
 # wraps glVertexArrayAttribFormat
 pub fun vertex_array_attrib_format(vaobj: u32, attribindex: u32, size: i32, type: u32, normalized: bool, relativeoffset: u32) {
     c.glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
 }
+
 # wraps glVertexArrayAttribIFormat
 pub fun vertex_array_attrib_iformat(vaobj: u32, attribindex: u32, size: i32, type: u32, relativeoffset: u32) {
     c.glVertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
 }
+
 # wraps glVertexArrayAttribLFormat
 pub fun vertex_array_attrib_lformat(vaobj: u32, attribindex: u32, size: i32, type: u32, relativeoffset: u32) {
     c.glVertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
 }
+
 # wraps glVertexArrayBindingDivisor
 pub fun vertex_array_binding_divisor(vaobj: u32, bindingindex: u32, divisor: u32) {
     c.glVertexArrayBindingDivisor(vaobj, bindingindex, divisor);
 }
+
 # wraps glGetVertexArrayiv
 pub fun get_vertex_arrayiv(vaobj: u32, pname: u32, param: *i32) {
     c.glGetVertexArrayiv(vaobj, pname, param);
 }
+
 # wraps glGetVertexArrayIndexediv
 pub fun get_vertex_array_indexediv(vaobj: u32, index: u32, pname: u32, param: *i32) {
     c.glGetVertexArrayIndexediv(vaobj, index, pname, param);
 }
+
 # wraps glGetVertexArrayIndexed64iv
 pub fun get_vertex_array_indexed64iv(vaobj: u32, index: u32, pname: u32, param: *i64) {
     c.glGetVertexArrayIndexed64iv(vaobj, index, pname, param);
 }
+
 # wraps glCreateSamplers
 pub fun create_samplers(n: i32, samplers: *u32) {
     c.glCreateSamplers(n, samplers);
 }
+
 # wraps glCreateProgramPipelines
 pub fun create_program_pipelines(n: i32, pipelines: *u32) {
     c.glCreateProgramPipelines(n, pipelines);
 }
+
 # wraps glCreateQueries
 pub fun create_queries(target: u32, n: i32, ids: *u32) {
     c.glCreateQueries(target, n, ids);
 }
+
 # wraps glGetQueryBufferObjecti64v
 pub fun get_query_buffer_objecti64v(id: u32, buffer: u32, pname: u32, offset: i64) {
     c.glGetQueryBufferObjecti64v(id, buffer, pname, offset);
 }
+
 # wraps glGetQueryBufferObjectiv
 pub fun get_query_buffer_objectiv(id: u32, buffer: u32, pname: u32, offset: i64) {
     c.glGetQueryBufferObjectiv(id, buffer, pname, offset);
 }
+
 # wraps glGetQueryBufferObjectui64v
 pub fun get_query_buffer_objectui64v(id: u32, buffer: u32, pname: u32, offset: i64) {
     c.glGetQueryBufferObjectui64v(id, buffer, pname, offset);
 }
+
 # wraps glGetQueryBufferObjectuiv
 pub fun get_query_buffer_objectuiv(id: u32, buffer: u32, pname: u32, offset: i64) {
     c.glGetQueryBufferObjectuiv(id, buffer, pname, offset);
 }
+
 # wraps glMemoryBarrierByRegion
 pub fun memory_barrier_by_region(barriers: u32) {
     c.glMemoryBarrierByRegion(barriers);
 }
+
 # wraps glGetTextureSubImage
 pub fun get_texture_sub_image(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, format: u32, type: u32, bufSize: i32, pixels: ptr) {
     c.glGetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
 }
+
 # wraps glGetCompressedTextureSubImage
 pub fun get_compressed_texture_sub_image(texture: u32, level: i32, xoffset: i32, yoffset: i32, zoffset: i32, width: i32, height: i32, depth: i32, bufSize: i32, pixels: ptr) {
     c.glGetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
 }
+
 # wraps glGetGraphicsResetStatus
 pub fun get_graphics_reset_status() u32 {
     ret c.glGetGraphicsResetStatus();
 }
+
 # wraps glGetnCompressedTexImage
 pub fun getn_compressed_tex_image(target: u32, lod: i32, bufSize: i32, pixels: ptr) {
     c.glGetnCompressedTexImage(target, lod, bufSize, pixels);
 }
+
 # wraps glGetnTexImage
 pub fun getn_tex_image(target: u32, level: i32, format: u32, type: u32, bufSize: i32, pixels: ptr) {
     c.glGetnTexImage(target, level, format, type, bufSize, pixels);
 }
+
 # wraps glGetnUniformdv
 pub fun getn_uniformdv(program: u32, location: i32, bufSize: i32, params: *f64) {
     c.glGetnUniformdv(program, location, bufSize, params);
 }
+
 # wraps glGetnUniformfv
 pub fun getn_uniformfv(program: u32, location: i32, bufSize: i32, params: *f32) {
     c.glGetnUniformfv(program, location, bufSize, params);
 }
+
 # wraps glGetnUniformiv
 pub fun getn_uniformiv(program: u32, location: i32, bufSize: i32, params: *i32) {
     c.glGetnUniformiv(program, location, bufSize, params);
 }
+
 # wraps glGetnUniformuiv
 pub fun getn_uniformuiv(program: u32, location: i32, bufSize: i32, params: *u32) {
     c.glGetnUniformuiv(program, location, bufSize, params);
 }
+
 # wraps glReadnPixels
 pub fun readn_pixels(x: i32, y: i32, width: i32, height: i32, format: u32, type: u32, bufSize: i32, data: ptr) {
     c.glReadnPixels(x, y, width, height, format, type, bufSize, data);
 }
+
 # wraps glTextureBarrier
 pub fun texture_barrier() {
     c.glTextureBarrier();
 }
+
 # wraps glSpecializeShader
 pub fun specialize_shader(shader: u32, pEntryPoint: str, numSpecializationConstants: u32, pConstantIndex: *u32, pConstantValue: *u32) {
     c.glSpecializeShader(shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue);
 }
+
 # wraps glMultiDrawArraysIndirectCount
 pub fun multi_draw_arrays_indirect_count(mode: u32, indirect: ptr, drawcount: i64, maxdrawcount: i32, stride: i32) {
     c.glMultiDrawArraysIndirectCount(mode, indirect, drawcount, maxdrawcount, stride);
 }
+
 # wraps glMultiDrawElementsIndirectCount
 pub fun multi_draw_elements_indirect_count(mode: u32, type: u32, indirect: ptr, drawcount: i64, maxdrawcount: i32, stride: i32) {
     c.glMultiDrawElementsIndirectCount(mode, type, indirect, drawcount, maxdrawcount, stride);
 }
+
 # wraps glPolygonOffsetClamp
 pub fun polygon_offset_clamp(factor: f32, units: f32, clamp: f32) {
     c.glPolygonOffsetClamp(factor, units, clamp);
