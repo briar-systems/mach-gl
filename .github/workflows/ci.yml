@@ -2,42 +2,28 @@ name: CI
 
 on:
   pull_request:
-    branches: [dev, main]
+  workflow_dispatch:
+    inputs:
+      heavy:
+        description: heavy work to run on this ref
+        type: choice
+        default: none
+        options: [none, all, aarch64-linux, x86_64-windows, aarch64-darwin, x86_64-darwin]
 
 permissions:
   contents: read
 
 jobs:
-  generate:
-    name: Generation drift
+  lib:
+    uses: briar-systems/.github/.github/workflows/mach-lib.yml@main
+    with:
+      heavy: ${{ inputs.heavy }}
+
+  gate:
+    if: always()
+    needs: [lib]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Check generated sources against the registry
-        run: python3 tools/gen.py check
-
-  test:
-    name: Test Suite
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Fetch released mach
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          mkdir -p /tmp/machdl
-          gh release download -R briar-systems/mach \
-            -p 'mach-*-x86_64-linux.tar.gz' -D /tmp/machdl --clobber
-          tar -xzf /tmp/machdl/mach-*-x86_64-linux.tar.gz -C /tmp/machdl
-          install -m 0755 /tmp/machdl/mach /usr/local/bin/mach
-          mach info
-
-      - name: Sync dependencies
-        run: mach dep pull
-
-      # the binding links nothing: no system GL, no glfw, no display.
-      - name: Test
-        run: mach test .
+      - uses: briar-systems/.github/.github/actions/gate@main
+        with:
+          needs: ${{ toJSON(needs) }}
