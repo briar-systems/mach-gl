@@ -149,7 +149,9 @@ The convenience helper `version(?major, ?minor)` is generated into `cmd.mach`
 
 `tools/gen.py` (Python, stdlib only) parses `tools/gl.xml`, walks the
 `<feature api="gl">` sets 1.0–4.6 applying core-profile removes, and emits
-all four generated sources deterministically. `tools/gen.py check` diffs a
+all four generated sources deterministically. Layout comes from `mach fmt -`
+(`$MACH_COMPILER`, else `mach` on `PATH`), so generated sources pass
+`mach fmt --check`. `tools/gen.py check` diffs a
 fresh generation against the committed sources; CI runs it, so the registry
 pin and the committed bindings cannot drift apart.
 

@@ -10,12 +10,14 @@
 #   tools/gen.py check      regenerate to memory and diff against the committed sources;
 #                           exit nonzero (and print a unified diff) on any drift
 #
-# stdlib only; output is deterministic so the committed sources and the registry
-# pin cannot drift apart.
+# stdlib only, plus `mach fmt` ($MACH_COMPILER, else mach on PATH) for layout;
+# output is deterministic so the committed sources and the registry pin cannot
+# drift apart.
 
 import difflib
 import os
 import re
+import subprocess
 import sys
 import xml.etree.ElementTree as ET
 
@@ -371,13 +373,24 @@ def gen_gl(cmds, enums):
     return "\n".join(out) + "\n"
 
 
+def canonical(text):
+    # the formatter owns layout, so generated and committed sources agree with mach fmt --check
+    compiler = os.environ.get("MACH_COMPILER", "mach")
+    done = subprocess.run([compiler, "fmt", "-"], input=text, capture_output=True, text=True)
+    if done.returncode != 0:
+        sys.stderr.write(done.stderr)
+        sys.exit("mach fmt rejected generated source")
+    return done.stdout
+
+
 def render(cmds, enums):
-    return {
+    files = {
         "c.mach": gen_c(cmds),
         "enums.mach": gen_enums(enums),
         "cmd.mach": gen_cmd(cmds),
         "gl.mach": gen_gl(cmds, enums),
     }
+    return {name: canonical(text) for name, text in files.items()}
 
 
 def main():
