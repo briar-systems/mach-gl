@@ -8,7 +8,7 @@
 pub val ACTIVE_ATOMIC_COUNTER_BUFFERS:                              u32 = 0x92D9;
 pub val ACTIVE_ATTRIBUTES:                                          u32 = 0x8B89;
 pub val ACTIVE_ATTRIBUTE_MAX_LENGTH:                                u32 = 0x8B8A;
-pub val ACTIVE_PROGRAM:                                             u32 = 0x8259;
+pub val ACTIVE_PROGRAM:                                             u32 = 0x8258;
 pub val ACTIVE_RESOURCES:                                           u32 = 0x92F5;
 pub val ACTIVE_SUBROUTINES:                                         u32 = 0x8DE5;
 pub val ACTIVE_SUBROUTINE_MAX_LENGTH:                               u32 = 0x8E48;
