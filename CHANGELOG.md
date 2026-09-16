@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- manifest: `linux-arm64` and `darwin-aarch64` targets, so the native aarch64 hosts build and test for themselves instead of falling back to linux-x86_64.
 ### Changed
 - build: Builds with Mach 5.x and std 2.1. The dependency is `[dep.std]` at `tag/v2.1.0`, pinned by the committed `dep/std` gitlink, and `mach.lock` is gone. Every profile states its full field set, and the linux-x86_64 target and debug profile are the defaults.
 - generator: `tools/gen.py` lays out generated sources with `mach fmt -`, so `gen.py check` and `mach fmt --check` agree. It reads the compiler from `$MACH_COMPILER`, else `mach` on `PATH`.
