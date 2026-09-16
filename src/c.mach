@@ -2659,7 +2659,7 @@ fun load_count(name: *u8) ptr {
 # a nil loader resolves nothing and leaves the table nil.
 test "c: load with a nil loader resolves nothing" {
     val n: i64 = load(load_nil);
-    if (n != 0) { ret 1; }
+    if (n != 0)         { ret 1; }
     if (glClear != nil) { ret 1; }
     ret 0;
 }
@@ -2670,6 +2670,6 @@ test "c: load with a stub loader resolves every command" {
     load_calls = 0;
     val n: i64 = load(load_count);
     if (n != load_calls) { ret 1; }
-    if (n <= 0) { ret 1; }
+    if (n <= 0)          { ret 1; }
     ret 0;
 }
