@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-09-16
+
+### Changed
+- build: std moves to `tag/v4.0.0`, which requires mach 5.2.0 or later. The bindings use no API that std 4.0.0 removed, and the exposed `bool` and `str` types are unchanged.
+
 ## [0.4.0] - 2026-09-16
 
 ### Added
