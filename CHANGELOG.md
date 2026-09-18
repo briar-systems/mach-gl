@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- ci: Releases are published by `.github/workflows/release.yml`, which runs the family `mach-release.yml`. A pushed `v*` tag is verified against the manifest version and changelog, then full CI runs, then the GitHub release is published. `ci.yml` takes a `heavy` input when called, and pull requests run as before.
+- ci: Releases are published by `.github/workflows/cd.yml`, which runs the family `mach-release.yml`. A pushed `v*` tag is verified against the manifest version and changelog, then full CI runs, then the GitHub release is published. `ci.yml` takes a `heavy` input when called, and pull requests run as before.
 
 ### Changed
 - license: Copyright is attributed to Briar Systems LLC.
