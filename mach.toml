@@ -1,6 +1,6 @@
 [project]
 id = "gl"
-version = "0.4.1"
+version = "0.5.0"
 mach = "^5.9"
 src = "src"
 out = "out/{target.name}/{profile.name}"

@@ -7,13 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-09-19
+
 ### Added
 - ci: Releases are published by `.github/workflows/cd.yml`, which runs the family `mach-release.yml`. A pushed `v*` tag is verified against the manifest version and changelog, then full CI runs, then the GitHub release is published. `ci.yml` takes a `heavy` input when called, and pull requests run as before.
 
 ### Changed
 - build: std moves to `version = "^6.0"`, pinned at v6.0.0 by the committed gitlink, and the manifest requires mach 5.9 or later (`mach = "^5.9"`). The bindings use only `std.runtime`, `bool` and `str`, none of which changed between std 4.0.0 and 6.0.0, so the public surface is unchanged.
 - license: Copyright is attributed to Briar Systems LLC.
-- manifest: `[project]` declares the compiler range `mach = "^5.3"`, so mach 5.3 and later no longer warn about a missing range.
+- manifest: `[project]` declares a compiler range, so mach 5.3 and later no longer warn about a missing one. The range is `^5.9` as of this release.
 
 ## [0.4.1] - 2026-09-16
 
