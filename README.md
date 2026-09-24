@@ -29,10 +29,19 @@ no system link requirement: every GL command is resolved at runtime through a
 loader the consumer provides (`glfwGetProcAddress` or any equivalent), so
 `mach-gl` declares no `libs` and forces none on consumers.
 
+Add it with `mach dep add`, which selects the newest compatible release:
+
+```sh
+mach dep add . gl --git https://github.com/briar-systems/mach-gl
+```
+
+That declares it under its project id, `gl`, as a version range over
+releases:
+
 ```toml
-[deps.mach-gl]
+[dep.gl]
 git = "https://github.com/briar-systems/mach-gl"
-ref = "branch/main"
+version = "^0.5.0"
 ```
 
 ## Goals
