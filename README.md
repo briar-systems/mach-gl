@@ -53,7 +53,7 @@ releases:
 ```toml
 [dep.gl]
 git = "https://github.com/briar-systems/mach-gl"
-version = "^0.5.0"
+version = "^0.6.0"
 ```
 
 Requires Mach 5.12 or newer and std 8.1.

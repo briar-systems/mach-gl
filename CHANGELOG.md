@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- readme: The dependency stanza declares `version = "^0.6.0"`, what `mach dep add` writes now that 0.6.0 is out. The old `^0.5.0` does not reach 0.6.0, so a consumer who copied it stayed on the std 6 release (#65).
+
 ## [0.6.0] - 2026-09-25
 
 ### Changed
