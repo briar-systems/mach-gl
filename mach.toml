@@ -1,6 +1,6 @@
 [project]
 id = "gl"
-version = "0.6.0"
+version = "0.6.1"
 mach = "^5.12"
 src = "src"
 out = "out/{target.name}/{profile.name}"
@@ -48,7 +48,7 @@ float_reassoc = false
 
 [artifact.gl]
 kind = "static"
-entry = "gl.mach"
+entry = "lib/gl.mach"
 out = "lib/gl"
 targets = ["*"]
 link = []

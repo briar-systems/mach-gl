@@ -53,7 +53,7 @@ releases:
 ```toml
 [dep.gl]
 git = "https://github.com/briar-systems/mach-gl"
-version = "^0.5.0"
+version = "^0.6.0"
 ```
 
 Requires Mach 5.12 or newer and std 8.1.
@@ -89,7 +89,9 @@ src/
                 command, C names and C-faithful types, plus load()
   enums.mach    constants (generated): every core enum, GL_ prefix stripped
   cmd.mach      idiomatic layer (generated): snake_case wrappers over c.*
-  gl.mach       library surface (generated): forwards every public symbol
+  lib/
+    gl.mach     library surface and artifact entry (generated): forwards
+                every public symbol
 tools/
   gen.py        registry generator; emits all generated sources
   gl.xml        pinned Khronos registry snapshot
@@ -138,7 +140,7 @@ Naming is mechanically derived: commands are the C name minus the `gl`
 prefix, snake_cased (`glBindBuffer` → `bind_buffer`, `glUniform4fv` →
 `uniform4fv`); enums are the C macro minus only `GL_` (`GL_TRIANGLES` →
 `TRIANGLES`). A stripped name that would start with a digit gets a leading
-`_`. Every name is globally unique, which lets `gl.mach` flatten the whole
+`_`. Every name is globally unique, which lets `lib/gl.mach` flatten the whole
 API onto one namespace.
 
 - `bool` replaces `GLboolean` in parameters and returns; `str` replaces
@@ -155,11 +157,11 @@ contexts that have it. This mirrors mach-glfw's rationale: GL already has a
 complete error model, and a `Result` wrap would cost ergonomics without
 adding information.
 
-### Library surface: `gl.gl`
+### Library surface: `gl.lib.gl`
 
-`gl.mach` re-exports every public symbol of `enums` and `cmd`, plus `c` as a
-module (`fwd gl.c;`) so the raw table stays reachable as `gl.c.glClear` for
-anyone who wants C names. The `[artifact.gl]` static library is entered
+`lib/gl.mach` re-exports every public symbol of `enums` and `cmd`, plus `c`
+as a module (`fwd gl.c;`) so the raw table stays reachable as `gl.c.glClear`
+for anyone who wants C names. The `[artifact.gl]` static library is entered
 through that surface and marked `default = true`, which makes a bare `use gl;`
 resolve to it: `gl.load(...)`, `gl.clear(...)`, `gl.COLOR_BUFFER_BIT`. The
 surface also carries `use std.runtime;` so a library `mach test` links a
