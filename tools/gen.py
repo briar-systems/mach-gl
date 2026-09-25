@@ -6,7 +6,7 @@
 #   https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/77ccc142a506fdba4b56e41aa884e20bc060ec17/xml/gl.xml
 #
 # usage:
-#   tools/gen.py            regenerate src/c.mach, src/enums.mach, src/cmd.mach, src/gl.mach
+#   tools/gen.py            regenerate src/c.mach, src/enums.mach, src/cmd.mach, src/lib/gl.mach
 #   tools/gen.py check      regenerate to memory and diff against the committed sources;
 #                           exit nonzero (and print a unified diff) on any drift
 #
@@ -388,7 +388,7 @@ def render(cmds, enums):
         "c.mach": gen_c(cmds),
         "enums.mach": gen_enums(enums),
         "cmd.mach": gen_cmd(cmds),
-        "gl.mach": gen_gl(cmds, enums),
+        "lib/gl.mach": gen_gl(cmds, enums),
     }
     return {name: canonical(text) for name, text in files.items()}
 
@@ -424,9 +424,10 @@ def main():
         sys.stderr.write("usage: tools/gen.py [gen|check]\n")
         sys.exit(2)
 
-    os.makedirs(SRC, exist_ok=True)
     for name, content in files.items():
-        with open(os.path.join(SRC, name), "w") as f:
+        path = os.path.join(SRC, name)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
             f.write(content)
     sys.stderr.write(
         "generated {} commands, {} enums\n".format(len(cmds), len(enums))

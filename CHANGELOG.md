@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Breaking: the library surface moves from `src/gl.mach` to `src/lib/gl.mach`, so its full module path is now `gl.lib.gl` instead of `gl.gl`** (#67). The `[artifact.gl]` entry follows the family layout, where artifact entries sit under `src/lib/` or `src/bin/`. A bare `use gl;` is unaffected, since it binds the default artifact's entry wherever that lives, and every other module path (`gl.c`, `gl.cmd`, `gl.enums`) is unchanged. Only a consumer that imports the surface by its full path, `use gl.gl;`, must change it to `use gl.lib.gl;` or to the bare `use gl;`. `tools/gen.py` now writes the surface to `src/lib/gl.mach`, and `mach test . --list` collects the same 5 tests as before.
+
 ### Fixed
 - readme: The dependency stanza declares `version = "^0.6.0"`, what `mach dep add` writes now that 0.6.0 is out. The old `^0.5.0` does not reach 0.6.0, so a consumer who copied it stayed on the std 6 release (#65).
 
