@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-09-25
+
 ### Fixed
 - manifest: `[artifact.gl]` is marked `default = true`, so a consumer's bare `use gl;` resolves to the `gl.mach` surface. Without it, `use gl;` failed with "project 'gl' has no public module".
 - readme: The windowing example matches mach-glfw 0.7.0. It checks `glfw.init()` and `glfw.open_window`'s results, passes `make_context_current` an `opt[glfw.Window]`, and reaches `glfwGetProcAddress` through `glfw.c`, which the `glfw` surface does not forward.
