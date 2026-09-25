@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- manifest: `[artifact.gl]` is marked `default = true`, so a consumer's bare `use gl;` resolves to the `gl.mach` surface. Without it, `use gl;` failed with "project 'gl' has no public module".
+
 ## [0.5.0] - 2026-09-19
 
 ### Added

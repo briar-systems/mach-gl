@@ -53,6 +53,7 @@ out = "lib/gl"
 targets = ["*"]
 link = []
 need = []
+default = true
 
 
 [dep.std]
