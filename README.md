@@ -56,6 +56,8 @@ git = "https://github.com/briar-systems/mach-gl"
 version = "^0.5.0"
 ```
 
+Requires Mach 5.12 or newer and std 8.1.
+
 ## Goals
 
 - Complete coverage of the OpenGL core profile, 1.0 through 4.6, generated

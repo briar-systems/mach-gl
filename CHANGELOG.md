@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Breaking: builds against std 8.1.0 and requires mach 5.12** (#59). `[dep.std]` moves from `^6.0` to `^8.1`, realized to v8.1.0 by the committed `dep/std` gitlink, and `[project].mach` rises from `^5.9` to `^5.12`, which std 8 requires. std 8.1.0 is the floor because it restores the C runtime's thread pointer (briar-systems/mach-std#915), without which a program that links a glibc-based shared library, such as the windowing library a GL consumer links, segfaults. Resolution is flat, so a consumer of gl must move to std 8.1 and mach 5.12 with it, and must rebuild anything that links std rather than only recompiling against the new sources. No source change was needed: the bindings use only `std.runtime`, `bool` and `str`, and nothing here calls `io.runtime.make`, reads `data.toml.Value` or uses `buffers.SecretSource`, the surfaces std 7 and 8 changed. Every test module is reached from `gl.mach`, so mach 5.12's closure-scoped `mach test .` (briar-systems/mach#3813) still collects all 5 tests on every target. The README now states the mach and std versions it requires.
+- ci: the lib job seeds mach v5.12.0 until the family pin moves (briar-systems/.github#103) (#59).
+
 ## [0.5.1] - 2026-09-25
 
 ### Fixed
