@@ -7,20 +7,32 @@ consumers reach everything as `gl.*`.
 
 ```mach
 use glfw;
+use glfwc: glfw.c;
 use gl;
+use std.types.error.err;
+use std.types.option.opt;
+use std.types.result.res;
 
-fun example() {
-    glfw.init();
-    val w: glfw.Window = glfw.open_window(1280, 720, "hello");
-    glfw.make_context_current(w);
-    gl.load(glfw.c.glfwGetProcAddress);
+fun example() err[glfw.Error] {
+    val started: err[glfw.Error] = glfw.init();
+    if (sel started.err) { ret started; }
+    val opened: res[glfw.Window, glfw.Error] = glfw.open_window(1280, 720, "hello");
+    if (sel opened.err) {
+        glfw.terminate();
+        ret err[glfw.Error].err{opened.err};
+    }
+    val w: glfw.Window = opened.ok;
+    glfw.make_context_current(opt[glfw.Window].some{w});
+    gl.load(glfwc.glfwGetProcAddress);
     for (!glfw.window_should_close(w)) {
         gl.clear_color(0.2, 0.3, 0.3, 1.0);
         gl.clear(gl.COLOR_BUFFER_BIT);
         glfw.swap_buffers(w);
         glfw.poll_events();
     }
+    glfw.destroy_window(w);
     glfw.terminate();
+    ret err[glfw.Error].ok{};
 }
 ```
 
@@ -145,11 +157,11 @@ adding information.
 
 `gl.mach` re-exports every public symbol of `enums` and `cmd`, plus `c` as a
 module (`fwd gl.c;`) so the raw table stays reachable as `gl.c.glClear` for
-anyone who wants C names. `[project].module = "gl.mach"` makes a bare
-`use gl;` resolve to it: `gl.load(...)`, `gl.clear(...)`,
-`gl.COLOR_BUFFER_BIT`. The project is a `[lib.gl]` artifact entered through
-that surface; the surface also carries `use std.runtime;` so a library
-`mach test` links a runnable binary.
+anyone who wants C names. The `[artifact.gl]` static library is entered
+through that surface and marked `default = true`, which makes a bare `use gl;`
+resolve to it: `gl.load(...)`, `gl.clear(...)`, `gl.COLOR_BUFFER_BIT`. The
+surface also carries `use std.runtime;` so a library `mach test` links a
+runnable binary.
 
 The convenience helper `version(?major, ?minor)` is generated into `cmd.mach`
 (sugar over `get_integerv(MAJOR_VERSION/MINOR_VERSION)`, valid after `load`).
