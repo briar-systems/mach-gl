@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-26
+
+### Changed
+- **Breaking: requires mach 6 and builds against std 9.0.0** (#71). `[project].mach` moves from `^5.12` to `^6` and `[dep.std]` from `^8.1` to `^9.0`, realized to v9.0.0 by the committed `dep/std` gitlink. Resolution is flat, so a consumer of gl must move to mach 6 and std 9 with it. The bindings' surface is unchanged. CI seeds mach v6.0.0.
+- Tests are named with identifiers (`subject__case`), emitted by `tools/gen.py`, and pruned to the test policy (#71). The two enum spot-checks fold into `enums__widths`, which checks one value per emitted width, so `mach test .` collects 4 tests where it collected 5. Test fixtures are marked `#[testing]`.
+- readme: The dependency stanza declares `version = "^0.7.0"`, and the requirement line names mach 6 and std 9.
+
 ## [0.6.1] - 2026-09-25
 
 ### Changed
