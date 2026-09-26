@@ -2645,19 +2645,22 @@ pub fun load(loader: fun(*u8) ptr) i64 {
     ret n;
 }
 
+#[testing]
 fun load_nil(name: *u8) ptr {
     ret nil;
 }
 
+#[testing]
 var load_calls: i64 = 0;
 
+#[testing]
 fun load_count(name: *u8) ptr {
     load_calls = load_calls + 1;
     ret (?load_calls)::ptr;
 }
 
 # a nil loader resolves nothing and leaves the table nil.
-test "c: load with a nil loader resolves nothing" {
+test load__nil_loader {
     val n: i64 = load(load_nil);
     if (n != 0)         { ret 1; }
     if (glClear != nil) { ret 1; }
@@ -2666,7 +2669,7 @@ test "c: load with a nil loader resolves nothing" {
 
 # a stub loader that answers every name resolves the whole table; the count
 # equals the number of loader calls, i.e. the generated command count.
-test "c: load with a stub loader resolves every command" {
+test load__stub_loader {
     load_calls = 0;
     val n: i64 = load(load_count);
     if (n != load_calls) { ret 1; }
