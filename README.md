@@ -182,9 +182,10 @@ pin and the committed bindings cannot drift apart.
 
 ## Tests
 
-`test` blocks are display-free: enum spot-checks against registry values,
-`load` with a stub loader (counts requests, returns nil; the table must
-stay nil and report 0), and a call through the table into a Mach-implemented
-fake command, which pins the loaded-pointer call ABI without a GL context.
+`test` blocks are display-free: one enum of each emitted width, `load` with a
+nil loader (the table stays nil and reports 0) and with a stub loader that
+answers every name (it reports one resolution per request), and a call through
+the table into a Mach-implemented fake command, which pins the loaded-pointer
+call ABI without a GL context. Test fixtures are `#[testing]`.
 Paths that need a live context are exercised by downstream consumers, not
 `mach test`.

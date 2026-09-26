@@ -3305,11 +3305,16 @@ pub fun version(major: *i32, minor: *i32) {
     get_integerv(enums.MINOR_VERSION, minor);
 }
 
+#[testing]
 var abi_x: i32 = 0;
+#[testing]
 var abi_y: i32 = 0;
+#[testing]
 var abi_w: i32 = 0;
+#[testing]
 var abi_h: i32 = 0;
 
+#[testing]
 fun abi_fake(x: i32, y: i32, width: i32, height: i32) {
     abi_x = x;
     abi_y = y;
@@ -3319,7 +3324,7 @@ fun abi_fake(x: i32, y: i32, width: i32, height: i32) {
 
 # pin the loaded-pointer call ABI: a Mach fake stands in for glScissor and the
 # wrapper must deliver every argument through the table without a GL context.
-test "cmd: loaded-pointer call ABI" {
+test cmd__loaded_pointer_call {
     c.glScissor = abi_fake;
     scissor(11, 22, 33, 44);
     if (abi_x != 11) { ret 1; }

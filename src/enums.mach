@@ -1373,17 +1373,9 @@ pub val XOR:                                                        u32 = 0x1506
 pub val ZERO:                                                       u32 = 0;
 pub val ZERO_TO_ONE:                                                u32 = 0x935F;
 
-test "enums: bitfield and primitive values match the registry" {
-    if (COLOR_BUFFER_BIT != 0x4000) { ret 1; }
-    if (DEPTH_BUFFER_BIT != 0x0100) { ret 1; }
-    if (TRIANGLES != 4)             { ret 1; }
-    if (FALSE != 0)                 { ret 1; }
-    if (TRUE != 1)                  { ret 1; }
-    if (FLOAT != 0x1406)            { ret 1; }
-    ret 0;
-}
-
-test "enums: 64-bit special value keeps its width" {
+# one value of each width the generator emits: u32 and the registry's 64-bit tag.
+test enums__widths {
+    if (COLOR_BUFFER_BIT != 0x4000)            { ret 1; }
     if (TIMEOUT_IGNORED != 0xFFFFFFFFFFFFFFFF) { ret 1; }
     ret 0;
 }
