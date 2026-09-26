@@ -56,7 +56,7 @@ git = "https://github.com/briar-systems/mach-gl"
 version = "^0.6.0"
 ```
 
-Requires Mach 5.12 or newer and std 8.1.
+Requires Mach 6 and std 9.
 
 ## Goals
 
