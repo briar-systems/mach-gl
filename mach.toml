@@ -1,60 +1,56 @@
 [project]
 id = "gl"
 version = "0.7.0"
-mach = "^6"
+mach = "^7"
 src = "src"
-out = "out/{target.name}/{profile.name}"
+work = "out/{target.name}/{profile.name}"
 
 [target.linux-x86_64]
-isa = "x86_64"
-os  = "linux"
-abi = "sysv64"
+arch = "x86_64"
+sys  = "linux"
+abi  = "sysv64"
 
 [target.windows]
-isa = "x86_64"
-os  = "windows"
-abi = "win64"
+arch = "x86_64"
+sys  = "windows"
+abi  = "win64"
 
 [target.darwin]
-isa = "x86_64"
-os  = "darwin"
-abi = "sysv64"
+arch = "x86_64"
+sys  = "darwin"
+abi  = "sysv64"
 
 [target.linux-arm64]
-isa = "aarch64"
-os  = "linux"
-abi = "aapcs64"
+arch = "aarch64"
+sys  = "linux"
+abi  = "aapcs64"
 
 [target.darwin-aarch64]
-isa = "aarch64"
-os  = "darwin"
-abi = "aapcs64"
+arch = "aarch64"
+sys  = "darwin"
+abi  = "darwinpcs"
 
 [profile.debug]
 default = true
-opt = 0
+optimize = false
 debug = true
 simd = "scalarize"
-vectorize = false
-float_reassoc = false
 
 [profile.release]
-opt = 2
+optimize = true
 debug = false
 simd = "scalarize"
-vectorize = false
-float_reassoc = false
 
 [artifact.gl]
 kind = "static"
 entry = "lib/gl.mach"
-out = "lib/gl"
+out = "{project.work}/lib/libgl{artifact.suffix}"
 targets = ["*"]
 link = []
 need = []
 default = true
-
+export = true
 
 [dep.std]
 git = "https://github.com/briar-systems/mach-std"
-version = "^9.0"
+ref = "branch/dev"

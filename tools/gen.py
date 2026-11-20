@@ -30,7 +30,7 @@ SRC = os.path.join(ROOT, "src")
 # mach reserved keywords (grammar.md); a generated identifier matching one
 # exactly is renamed with a trailing underscore.
 KEYWORDS = set(
-    "asm brk cnt def ext fin for fun fwd if nil or pub rec ret test uni use val var".split()
+    "asm brk cnt def each error ext fin for fun fwd if in nil or pub rec ret sel tag test uni use val var".split()
 )
 
 # C base type -> mach scalar type, per the README type table.
@@ -296,7 +296,10 @@ def gen_cmd(cmds):
         rty = map_cmd(ret, True)
         decl = "pub fun {}({})".format(snake(cn), sig)
         decl += " {}".format(rty) if rty else ""
-        args = ", ".join(n for n, _ in params)
+        # bool is u1, so it widens back to the C GLboolean byte at the call
+        args = ", ".join(
+            "{}::u8".format(n) if map_cmd(t, False) == "bool" else n for n, t in params
+        )
         out.append("# wraps {}".format(cn))
         out.append(decl + " {")
         call = "c.{}({})".format(cn, args)
@@ -352,7 +355,7 @@ def gen_gl(cmds, enums):
     out = []
     out.append("# the flat public surface of the OpenGL bindings (generated)")
     out.append("#")
-    out.append("# re-exports every enum and wrapper under one namespace so a bare `use gl;`")
+    out.append("# re-exports every enum and wrapper under one namespace so `use gl.lib.gl;`")
     out.append("# reaches the whole API as gl.load(), gl.clear(), gl.COLOR_BUFFER_BIT. the raw")
     out.append("# table stays reachable as gl.c.glClear for anyone who wants C names.")
     out.append("#")

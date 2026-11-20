@@ -108,12 +108,12 @@ pub fun stencil_mask(mask: u32) {
 
 # wraps glColorMask
 pub fun color_mask(red: bool, green: bool, blue: bool, alpha: bool) {
-    c.glColorMask(red, green, blue, alpha);
+    c.glColorMask(red::u8, green::u8, blue::u8, alpha::u8);
 }
 
 # wraps glDepthMask
 pub fun depth_mask(flag: bool) {
-    c.glDepthMask(flag);
+    c.glDepthMask(flag::u8);
 }
 
 # wraps glDisable
@@ -343,7 +343,7 @@ pub fun active_texture(texture: u32) {
 
 # wraps glSampleCoverage
 pub fun sample_coverage(value: f32, invert: bool) {
-    c.glSampleCoverage(value, invert);
+    c.glSampleCoverage(value, invert::u8);
 }
 
 # wraps glCompressedTexImage3D
@@ -783,17 +783,17 @@ pub fun uniform4iv(location: i32, count: i32, value: *i32) {
 
 # wraps glUniformMatrix2fv
 pub fun uniform_matrix2fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix2fv(location, count, transpose, value);
+    c.glUniformMatrix2fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3fv
 pub fun uniform_matrix3fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix3fv(location, count, transpose, value);
+    c.glUniformMatrix3fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4fv
 pub fun uniform_matrix4fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix4fv(location, count, transpose, value);
+    c.glUniformMatrix4fv(location, count, transpose::u8, value);
 }
 
 # wraps glValidateProgram
@@ -983,42 +983,42 @@ pub fun vertex_attrib4usv(index: u32, v: *u16) {
 
 # wraps glVertexAttribPointer
 pub fun vertex_attrib_pointer(index: u32, size: i32, type: u32, normalized: bool, stride: i32, pointer: ptr) {
-    c.glVertexAttribPointer(index, size, type, normalized, stride, pointer);
+    c.glVertexAttribPointer(index, size, type, normalized::u8, stride, pointer);
 }
 
 # wraps glUniformMatrix2x3fv
 pub fun uniform_matrix2x3fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix2x3fv(location, count, transpose, value);
+    c.glUniformMatrix2x3fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3x2fv
 pub fun uniform_matrix3x2fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix3x2fv(location, count, transpose, value);
+    c.glUniformMatrix3x2fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix2x4fv
 pub fun uniform_matrix2x4fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix2x4fv(location, count, transpose, value);
+    c.glUniformMatrix2x4fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4x2fv
 pub fun uniform_matrix4x2fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix4x2fv(location, count, transpose, value);
+    c.glUniformMatrix4x2fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3x4fv
 pub fun uniform_matrix3x4fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix3x4fv(location, count, transpose, value);
+    c.glUniformMatrix3x4fv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4x3fv
 pub fun uniform_matrix4x3fv(location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glUniformMatrix4x3fv(location, count, transpose, value);
+    c.glUniformMatrix4x3fv(location, count, transpose::u8, value);
 }
 
 # wraps glColorMaski
 pub fun color_maski(index: u32, r: bool, g: bool, b: bool, a: bool) {
-    c.glColorMaski(index, r, g, b, a);
+    c.glColorMaski(index, r::u8, g::u8, b::u8, a::u8);
 }
 
 # wraps glGetBooleani_v
@@ -1573,12 +1573,12 @@ pub fun framebuffer_texture(target: u32, attachment: u32, texture: u32, level: i
 
 # wraps glTexImage2DMultisample
 pub fun tex_image2dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
-    c.glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
+    c.glTexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations::u8);
 }
 
 # wraps glTexImage3DMultisample
 pub fun tex_image3dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
-    c.glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+    c.glTexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations::u8);
 }
 
 # wraps glGetMultisamplefv
@@ -1693,42 +1693,42 @@ pub fun vertex_attrib_divisor(index: u32, divisor: u32) {
 
 # wraps glVertexAttribP1ui
 pub fun vertex_attrib_p1ui(index: u32, type: u32, normalized: bool, value: u32) {
-    c.glVertexAttribP1ui(index, type, normalized, value);
+    c.glVertexAttribP1ui(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP1uiv
 pub fun vertex_attrib_p1uiv(index: u32, type: u32, normalized: bool, value: *u32) {
-    c.glVertexAttribP1uiv(index, type, normalized, value);
+    c.glVertexAttribP1uiv(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP2ui
 pub fun vertex_attrib_p2ui(index: u32, type: u32, normalized: bool, value: u32) {
-    c.glVertexAttribP2ui(index, type, normalized, value);
+    c.glVertexAttribP2ui(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP2uiv
 pub fun vertex_attrib_p2uiv(index: u32, type: u32, normalized: bool, value: *u32) {
-    c.glVertexAttribP2uiv(index, type, normalized, value);
+    c.glVertexAttribP2uiv(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP3ui
 pub fun vertex_attrib_p3ui(index: u32, type: u32, normalized: bool, value: u32) {
-    c.glVertexAttribP3ui(index, type, normalized, value);
+    c.glVertexAttribP3ui(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP3uiv
 pub fun vertex_attrib_p3uiv(index: u32, type: u32, normalized: bool, value: *u32) {
-    c.glVertexAttribP3uiv(index, type, normalized, value);
+    c.glVertexAttribP3uiv(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP4ui
 pub fun vertex_attrib_p4ui(index: u32, type: u32, normalized: bool, value: u32) {
-    c.glVertexAttribP4ui(index, type, normalized, value);
+    c.glVertexAttribP4ui(index, type, normalized::u8, value);
 }
 
 # wraps glVertexAttribP4uiv
 pub fun vertex_attrib_p4uiv(index: u32, type: u32, normalized: bool, value: *u32) {
-    c.glVertexAttribP4uiv(index, type, normalized, value);
+    c.glVertexAttribP4uiv(index, type, normalized::u8, value);
 }
 
 # wraps glMinSampleShading
@@ -1808,47 +1808,47 @@ pub fun uniform4dv(location: i32, count: i32, value: *f64) {
 
 # wraps glUniformMatrix2dv
 pub fun uniform_matrix2dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix2dv(location, count, transpose, value);
+    c.glUniformMatrix2dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3dv
 pub fun uniform_matrix3dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix3dv(location, count, transpose, value);
+    c.glUniformMatrix3dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4dv
 pub fun uniform_matrix4dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix4dv(location, count, transpose, value);
+    c.glUniformMatrix4dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix2x3dv
 pub fun uniform_matrix2x3dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix2x3dv(location, count, transpose, value);
+    c.glUniformMatrix2x3dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix2x4dv
 pub fun uniform_matrix2x4dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix2x4dv(location, count, transpose, value);
+    c.glUniformMatrix2x4dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3x2dv
 pub fun uniform_matrix3x2dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix3x2dv(location, count, transpose, value);
+    c.glUniformMatrix3x2dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix3x4dv
 pub fun uniform_matrix3x4dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix3x4dv(location, count, transpose, value);
+    c.glUniformMatrix3x4dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4x2dv
 pub fun uniform_matrix4x2dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix4x2dv(location, count, transpose, value);
+    c.glUniformMatrix4x2dv(location, count, transpose::u8, value);
 }
 
 # wraps glUniformMatrix4x3dv
 pub fun uniform_matrix4x3dv(location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glUniformMatrix4x3dv(location, count, transpose, value);
+    c.glUniformMatrix4x3dv(location, count, transpose::u8, value);
 }
 
 # wraps glGetUniformdv
@@ -2203,92 +2203,92 @@ pub fun program_uniform4uiv(program: u32, location: i32, count: i32, value: *u32
 
 # wraps glProgramUniformMatrix2fv
 pub fun program_uniform_matrix2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix2fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3fv
 pub fun program_uniform_matrix3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix3fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4fv
 pub fun program_uniform_matrix4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix4fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix2dv
 pub fun program_uniform_matrix2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix2dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3dv
 pub fun program_uniform_matrix3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix3dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4dv
 pub fun program_uniform_matrix4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix4dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix2x3fv
 pub fun program_uniform_matrix2x3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix2x3fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2x3fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3x2fv
 pub fun program_uniform_matrix3x2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix3x2fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3x2fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix2x4fv
 pub fun program_uniform_matrix2x4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix2x4fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2x4fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4x2fv
 pub fun program_uniform_matrix4x2fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix4x2fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4x2fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3x4fv
 pub fun program_uniform_matrix3x4fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix3x4fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3x4fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4x3fv
 pub fun program_uniform_matrix4x3fv(program: u32, location: i32, count: i32, transpose: bool, value: *f32) {
-    c.glProgramUniformMatrix4x3fv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4x3fv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix2x3dv
 pub fun program_uniform_matrix2x3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix2x3dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2x3dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3x2dv
 pub fun program_uniform_matrix3x2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix3x2dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3x2dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix2x4dv
 pub fun program_uniform_matrix2x4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix2x4dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix2x4dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4x2dv
 pub fun program_uniform_matrix4x2dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix4x2dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4x2dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix3x4dv
 pub fun program_uniform_matrix3x4dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix3x4dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix3x4dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glProgramUniformMatrix4x3dv
 pub fun program_uniform_matrix4x3dv(program: u32, location: i32, count: i32, transpose: bool, value: *f64) {
-    c.glProgramUniformMatrix4x3dv(program, location, count, transpose, value);
+    c.glProgramUniformMatrix4x3dv(program, location, count, transpose::u8, value);
 }
 
 # wraps glValidateProgramPipeline
@@ -2428,7 +2428,7 @@ pub fun get_active_atomic_counter_bufferiv(program: u32, bufferIndex: u32, pname
 
 # wraps glBindImageTexture
 pub fun bind_image_texture(unit: u32, texture: u32, level: i32, layered: bool, layer: i32, access: u32, format: u32) {
-    c.glBindImageTexture(unit, texture, level, layered, layer, access, format);
+    c.glBindImageTexture(unit, texture, level, layered::u8, layer, access, format);
 }
 
 # wraps glMemoryBarrier
@@ -2583,12 +2583,12 @@ pub fun tex_buffer_range(target: u32, internalformat: u32, buffer: u32, offset: 
 
 # wraps glTexStorage2DMultisample
 pub fun tex_storage2dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
-    c.glTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
+    c.glTexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations::u8);
 }
 
 # wraps glTexStorage3DMultisample
 pub fun tex_storage3dmultisample(target: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
-    c.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+    c.glTexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations::u8);
 }
 
 # wraps glTextureView
@@ -2603,7 +2603,7 @@ pub fun bind_vertex_buffer(bindingindex: u32, buffer: u32, offset: i64, stride: 
 
 # wraps glVertexAttribFormat
 pub fun vertex_attrib_format(attribindex: u32, size: i32, type: u32, normalized: bool, relativeoffset: u32) {
-    c.glVertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
+    c.glVertexAttribFormat(attribindex, size, type, normalized::u8, relativeoffset);
 }
 
 # wraps glVertexAttribIFormat
@@ -2628,7 +2628,7 @@ pub fun vertex_binding_divisor(bindingindex: u32, divisor: u32) {
 
 # wraps glDebugMessageControl
 pub fun debug_message_control(source: u32, type: u32, severity: u32, count: i32, ids: *u32, enabled: bool) {
-    c.glDebugMessageControl(source, type, severity, count, ids, enabled);
+    c.glDebugMessageControl(source, type, severity, count, ids, enabled::u8);
 }
 
 # wraps glDebugMessageInsert
@@ -2978,12 +2978,12 @@ pub fun texture_storage3d(texture: u32, levels: i32, internalformat: u32, width:
 
 # wraps glTextureStorage2DMultisample
 pub fun texture_storage2dmultisample(texture: u32, samples: i32, internalformat: u32, width: i32, height: i32, fixedsamplelocations: bool) {
-    c.glTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
+    c.glTextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations::u8);
 }
 
 # wraps glTextureStorage3DMultisample
 pub fun texture_storage3dmultisample(texture: u32, samples: i32, internalformat: u32, width: i32, height: i32, depth: i32, fixedsamplelocations: bool) {
-    c.glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+    c.glTextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations::u8);
 }
 
 # wraps glTextureSubImage1D
@@ -3148,7 +3148,7 @@ pub fun vertex_array_attrib_binding(vaobj: u32, attribindex: u32, bindingindex: 
 
 # wraps glVertexArrayAttribFormat
 pub fun vertex_array_attrib_format(vaobj: u32, attribindex: u32, size: i32, type: u32, normalized: bool, relativeoffset: u32) {
-    c.glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
+    c.glVertexArrayAttribFormat(vaobj, attribindex, size, type, normalized::u8, relativeoffset);
 }
 
 # wraps glVertexArrayAttribIFormat
