@@ -2,13 +2,13 @@
 
 Mach bindings for [OpenGL](https://registry.khronos.org/OpenGL/) 4.6 core
 profile: a raw loaded-pointer layer plus an idiomatic Mach API on top,
-generated from the Khronos `gl.xml` registry. Project id is `gl`, so
-consumers reach everything as `gl.*`.
+generated from the Khronos `gl.xml` registry. Project id is `gl`, and
+`use gl.lib.gl;` binds the whole API as `gl.*`.
 
 ```mach
-use glfw;
+use glfw.lib.glfw;
 use glfwc: glfw.c;
-use gl;
+use gl.lib.gl;
 use std.types.error.err;
 use std.types.option.opt;
 use std.types.result.res;
@@ -39,7 +39,7 @@ fun example() err[glfw.Error] {
 Consuming projects vendor the bindings as a normal Mach dependency. There is
 no system link requirement: every GL command is resolved at runtime through a
 loader the consumer provides (`glfwGetProcAddress` or any equivalent), so
-`mach-gl` declares no `libs` and forces none on consumers.
+`mach-gl` declares no `[link]` tables and forces none on consumers.
 
 Add it with `mach dep add`, which selects the newest compatible release:
 
@@ -56,7 +56,7 @@ git = "https://github.com/briar-systems/mach-gl"
 version = "^0.7.0"
 ```
 
-Requires Mach 6 and std 9.
+Requires Mach 7. std follows its `branch/dev` until its v7 release.
 
 ## Goals
 
@@ -144,8 +144,10 @@ prefix, snake_cased (`glBindBuffer` → `bind_buffer`, `glUniform4fv` →
 API onto one namespace.
 
 - `bool` replaces `GLboolean` in parameters and returns; `str` replaces
-  `const GLchar*` where the argument is a name string. Buffers, raw data
-  pointers, and out-params keep C-faithful pointer types.
+  `const GLchar*` where the argument is a name string. `bool` is `u1`, so a
+  wrapper widens it to the `GLboolean` byte (`flag::u8`) and reads a returned
+  byte as `!= 0`. Buffers, raw data pointers, and out-params keep C-faithful
+  pointer types.
 - Scalar out-params stay out-params (`get_integerv(MAJOR_VERSION, ?v)`),
   the Mach idiom for multiple returns.
 - One convenience helper with no C counterpart: `version(?major, ?minor)`,
@@ -161,11 +163,11 @@ adding information.
 
 `lib/gl.mach` re-exports every public symbol of `enums` and `cmd`, plus `c`
 as a module (`fwd gl.c;`) so the raw table stays reachable as `gl.c.glClear`
-for anyone who wants C names. The `[artifact.gl]` static library is entered
-through that surface and marked `default = true`, which makes a bare `use gl;`
-resolve to it: `gl.load(...)`, `gl.clear(...)`, `gl.COLOR_BUFFER_BIT`. The
-surface also carries `use std.runtime;` so a library `mach test` links a
-runnable binary.
+for anyone who wants C names. A consumer imports the surface by its source
+path, `use gl.lib.gl;`, which binds it as `gl`: `gl.load(...)`, `gl.clear(...)`,
+`gl.COLOR_BUFFER_BIT`. The `[artifact.gl]` static library is entered through
+that surface. The surface also carries `use std.runtime;` so a library
+`mach test` links a runnable binary.
 
 The convenience helper `version(?major, ?minor)` is generated into `cmd.mach`
 (sugar over `get_integerv(MAJOR_VERSION/MINOR_VERSION)`, valid after `load`).
